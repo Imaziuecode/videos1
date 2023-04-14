@@ -1,0 +1,3340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>furqans demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <!-- Link Swiper's CSS -->
+ 
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/regular.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/solid.min.css" />
+
+
+    
+    
+    
+    <style>
+        
+  
+/**
+ * Swiper 9.1.1
+ * Most modern mobile touch slider and framework with hardware accelerated transitions
+ * https://swiperjs.com
+ *
+ * Copyright 2014-2023 Vladimir Kharlampidi
+ *
+ * Released under the MIT License
+ *
+ * Released on: March 16, 2023
+ */
+ *{
+     color:white;
+ }
+ 
+ body{
+     height:100vh;
+     overflow:hidden;
+     font-size:100%;
+ }
+
+@font-face {
+    font-family: swiper-icons;
+    src: url("data:application/font-woff;charset=utf-8;base64, d09GRgABAAAAAAZgABAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAAGRAAAABoAAAAci6qHkUdERUYAAAWgAAAAIwAAACQAYABXR1BPUwAABhQAAAAuAAAANuAY7+xHU1VCAAAFxAAAAFAAAABm2fPczU9TLzIAAAHcAAAASgAAAGBP9V5RY21hcAAAAkQAAACIAAABYt6F0cBjdnQgAAACzAAAAAQAAAAEABEBRGdhc3AAAAWYAAAACAAAAAj//wADZ2x5ZgAAAywAAADMAAAD2MHtryVoZWFkAAABbAAAADAAAAA2E2+eoWhoZWEAAAGcAAAAHwAAACQC9gDzaG10eAAAAigAAAAZAAAArgJkABFsb2NhAAAC0AAAAFoAAABaFQAUGG1heHAAAAG8AAAAHwAAACAAcABAbmFtZQAAA/gAAAE5AAACXvFdBwlwb3N0AAAFNAAAAGIAAACE5s74hXjaY2BkYGAAYpf5Hu/j+W2+MnAzMYDAzaX6QjD6/4//Bxj5GA8AuRwMYGkAPywL13jaY2BkYGA88P8Agx4j+/8fQDYfA1AEBWgDAIB2BOoAeNpjYGRgYNBh4GdgYgABEMnIABJzYNADCQAACWgAsQB42mNgYfzCOIGBlYGB0YcxjYGBwR1Kf2WQZGhhYGBiYGVmgAFGBiQQkOaawtDAoMBQxXjg/wEGPcYDDA4wNUA2CCgwsAAAO4EL6gAAeNpj2M0gyAACqxgGNWBkZ2D4/wMA+xkDdgAAAHjaY2BgYGaAYBkGRgYQiAHyGMF8FgYHIM3DwMHABGQrMOgyWDLEM1T9/w8UBfEMgLzE////P/5//f/V/xv+r4eaAAeMbAxwIUYmIMHEgKYAYjUcsDAwsLKxc3BycfPw8jEQA/gZBASFhEVExcQlJKWkZWTl5BUUlZRVVNXUNTQZBgMAAMR+E+gAEQFEAAAAKgAqACoANAA+AEgAUgBcAGYAcAB6AIQAjgCYAKIArAC2AMAAygDUAN4A6ADyAPwBBgEQARoBJAEuATgBQgFMAVYBYAFqAXQBfgGIAZIBnAGmAbIBzgHsAAB42u2NMQ6CUAyGW568x9AneYYgm4MJbhKFaExIOAVX8ApewSt4Bic4AfeAid3VOBixDxfPYEza5O+Xfi04YADggiUIULCuEJK8VhO4bSvpdnktHI5QCYtdi2sl8ZnXaHlqUrNKzdKcT8cjlq+rwZSvIVczNiezsfnP/uznmfPFBNODM2K7MTQ45YEAZqGP81AmGGcF3iPqOop0r1SPTaTbVkfUe4HXj97wYE+yNwWYxwWu4v1ugWHgo3S1XdZEVqWM7ET0cfnLGxWfkgR42o2PvWrDMBSFj/IHLaF0zKjRgdiVMwScNRAoWUoH78Y2icB/yIY09An6AH2Bdu/UB+yxopYshQiEvnvu0dURgDt8QeC8PDw7Fpji3fEA4z/PEJ6YOB5hKh4dj3EvXhxPqH/SKUY3rJ7srZ4FZnh1PMAtPhwP6fl2PMJMPDgeQ4rY8YT6Gzao0eAEA409DuggmTnFnOcSCiEiLMgxCiTI6Cq5DZUd3Qmp10vO0LaLTd2cjN4fOumlc7lUYbSQcZFkutRG7g6JKZKy0RmdLY680CDnEJ+UMkpFFe1RN7nxdVpXrC4aTtnaurOnYercZg2YVmLN/d/gczfEimrE/fs/bOuq29Zmn8tloORaXgZgGa78yO9/cnXm2BpaGvq25Dv9S4E9+5SIc9PqupJKhYFSSl47+Qcr1mYNAAAAeNptw0cKwkAAAMDZJA8Q7OUJvkLsPfZ6zFVERPy8qHh2YER+3i/BP83vIBLLySsoKimrqKqpa2hp6+jq6RsYGhmbmJqZSy0sraxtbO3sHRydnEMU4uR6yx7JJXveP7WrDycAAAAAAAH//wACeNpjYGRgYOABYhkgZgJCZgZNBkYGLQZtIJsFLMYAAAw3ALgAeNolizEKgDAQBCchRbC2sFER0YD6qVQiBCv/H9ezGI6Z5XBAw8CBK/m5iQQVauVbXLnOrMZv2oLdKFa8Pjuru2hJzGabmOSLzNMzvutpB3N42mNgZGBg4GKQYzBhYMxJLMlj4GBgAYow/P/PAJJhLM6sSoWKfWCAAwDAjgbRAAB42mNgYGBkAIIbCZo5IPrmUn0hGA0AO8EFTQAA");
+    font-weight: 400;
+    font-style: normal;
+}
+:root {
+    --swiper-theme-color: #007aff;
+}
+.swiper,
+swiper-container {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+    display: block;
+    height:100vh;
+}
+.swiper-vertical > .swiper-wrapper {
+    flex-direction: column;
+}
+.swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    transition-timing-function: var(--swiper-wrapper-transition-timing-function, initial);
+    box-sizing: content-box;
+    
+    
+}
+.swiper-android .swiper-slide,
+.swiper-wrapper {
+    transform: translate3d(0px, 0, 0);
+}
+.swiper-horizontal {
+    touch-action: pan-y;
+}
+.swiper-vertical {
+    touch-action: pan-x;
+}
+.swiper-slide,
+swiper-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+    display: block;
+
+}
+.swiper-slide-invisible-blank {
+    visibility: hidden;
+}
+.swiper-autoheight,
+.swiper-autoheight .swiper-slide {
+    height: auto;
+}
+.swiper-autoheight .swiper-wrapper {
+    align-items: flex-start;
+    transition-property: transform, height;
+}
+.swiper-backface-hidden .swiper-slide {
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.swiper-3d.swiper-css-mode .swiper-wrapper {
+    perspective: 1200px;
+}
+.swiper-3d .swiper-wrapper {
+    transform-style: preserve-3d;
+}
+.swiper-3d {
+    perspective: 1200px;
+}
+.swiper-3d .swiper-cube-shadow,
+.swiper-3d .swiper-slide,
+.swiper-3d .swiper-slide-shadow,
+.swiper-3d .swiper-slide-shadow-bottom,
+.swiper-3d .swiper-slide-shadow-left,
+.swiper-3d .swiper-slide-shadow-right,
+.swiper-3d .swiper-slide-shadow-top {
+    transform-style: preserve-3d;
+}
+.swiper-3d .swiper-slide-shadow,
+.swiper-3d .swiper-slide-shadow-bottom,
+.swiper-3d .swiper-slide-shadow-left,
+.swiper-3d .swiper-slide-shadow-right,
+.swiper-3d .swiper-slide-shadow-top {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+.swiper-3d .swiper-slide-shadow {
+    background: rgba(0, 0, 0, 0.15);
+}
+.swiper-3d .swiper-slide-shadow-left {
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+.swiper-3d .swiper-slide-shadow-right {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+.swiper-3d .swiper-slide-shadow-top {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+.swiper-3d .swiper-slide-shadow-bottom {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+.swiper-css-mode > .swiper-wrapper {
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.swiper-css-mode > .swiper-wrapper::-webkit-scrollbar {
+    display: none;
+}
+.swiper-css-mode > .swiper-wrapper > .swiper-slide {
+    scroll-snap-align: start start;
+}
+.swiper-horizontal.swiper-css-mode > .swiper-wrapper {
+    scroll-snap-type: x mandatory;
+}
+.swiper-vertical.swiper-css-mode > .swiper-wrapper {
+    scroll-snap-type: y mandatory;
+}
+.swiper-centered > .swiper-wrapper::before {
+    content: "";
+    flex-shrink: 0;
+    order: 9999;
+}
+.swiper-centered > .swiper-wrapper > .swiper-slide {
+    scroll-snap-align: center center;
+    scroll-snap-stop: always;
+}
+.swiper-centered.swiper-horizontal > .swiper-wrapper > .swiper-slide:first-child {
+    margin-inline-start: var(--swiper-centered-offset-before);
+}
+.swiper-centered.swiper-horizontal > .swiper-wrapper::before {
+    height: 100%;
+    min-height: 1px;
+    width: var(--swiper-centered-offset-after);
+}
+.swiper-centered.swiper-vertical > .swiper-wrapper > .swiper-slide:first-child {
+    margin-block-start: var(--swiper-centered-offset-before);
+}
+.swiper-centered.swiper-vertical > .swiper-wrapper::before {
+    width: 100%;
+    min-width: 1px;
+    height: var(--swiper-centered-offset-after);
+}
+/*
+.swiper-lazy-preloader {
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -21px;
+    margin-top: -21px;
+    z-index: 10;
+    transform-origin: 50%;
+    box-sizing: border-box;
+    border: 4px solid var(--swiper-preloader-color, var(--swiper-theme-color));
+    border-radius: 50%;
+    border-top-color: transparent;
+}
+
+.swiper-watch-progress .swiper-slide-visible .swiper-lazy-preloader,
+.swiper:not(.swiper-watch-progress) .swiper-lazy-preloader,
+swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader {
+    animation: swiper-preloader-spin 1s infinite linear;
+}
+.swiper-lazy-preloader-white {
+    --swiper-preloader-color: #fff;
+}
+.swiper-lazy-preloader-black {
+    --swiper-preloader-color: #000;
+}
+@keyframes swiper-preloader-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+*/
+.swiper-virtual .swiper-slide {
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+}
+.swiper-virtual.swiper-css-mode .swiper-wrapper::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+}
+.swiper-virtual.swiper-css-mode.swiper-horizontal .swiper-wrapper::after {
+    height: 1px;
+    width: var(--swiper-virtual-size);
+}
+.swiper-virtual.swiper-css-mode.swiper-vertical .swiper-wrapper::after {
+    width: 1px;
+    height: var(--swiper-virtual-size);
+}
+:root {
+    --swiper-navigation-size: 44px;
+}
+.swiper-button-next,
+.swiper-button-prev {
+    position: absolute;
+    top: var(--swiper-navigation-top-offset, 50%);
+    width: calc(var(--swiper-navigation-size) / 44 * 27);
+    height: var(--swiper-navigation-size);
+    margin-top: calc(0px - (var(--swiper-navigation-size) / 2));
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--swiper-navigation-color, var(--swiper-theme-color));
+}
+.swiper-button-next.swiper-button-disabled,
+.swiper-button-prev.swiper-button-disabled {
+    opacity: 0.35;
+    cursor: auto;
+    pointer-events: none;
+}
+.swiper-button-next.swiper-button-hidden,
+.swiper-button-prev.swiper-button-hidden {
+    opacity: 0;
+    cursor: auto;
+    pointer-events: none;
+}
+.swiper-navigation-disabled .swiper-button-next,
+.swiper-navigation-disabled .swiper-button-prev {
+    display: none !important;
+}
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    font-family: swiper-icons;
+    font-size: var(--swiper-navigation-size);
+    text-transform: none !important;
+    letter-spacing: 0;
+    font-variant: initial;
+    line-height: 1;
+}
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+    left: var(--swiper-navigation-sides-offset, 10px);
+    right: auto;
+}
+.swiper-button-prev:after,
+.swiper-rtl .swiper-button-next:after {
+    content: "prev";
+}
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+    right: var(--swiper-navigation-sides-offset, 10px);
+    left: auto;
+}
+.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after {
+    content: "next";
+}
+.swiper-button-lock {
+    display: none;
+}
+.swiper-pagination {
+    position: absolute;
+    text-align: center;
+    transition: 0.3s opacity;
+    transform: translate3d(0, 0, 0);
+    z-index: 10;
+}
+.swiper-pagination.swiper-pagination-hidden {
+    opacity: 0;
+}
+.swiper-pagination-disabled > .swiper-pagination,
+.swiper-pagination.swiper-pagination-disabled {
+    display: none !important;
+}
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+    bottom: var(--swiper-pagination-bottom, 8px);
+    top: var(--swiper-pagination-top, auto);
+    left: 0;
+    width: 100%;
+}
+.swiper-pagination-bullets-dynamic {
+    overflow: hidden;
+    font-size: 0;
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
+    transform: scale(0.33);
+    position: relative;
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active {
+    transform: scale(1);
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-main {
+    transform: scale(1);
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev {
+    transform: scale(0.66);
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev-prev {
+    transform: scale(0.33);
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next {
+    transform: scale(0.66);
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next-next {
+    transform: scale(0.33);
+}
+.swiper-pagination-bullet {
+    width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 8px));
+    height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 8px));
+    display: inline-block;
+    border-radius: var(--swiper-pagination-bullet-border-radius, 50%);
+    background: var(--swiper-pagination-bullet-inactive-color, #000);
+    opacity: var(--swiper-pagination-bullet-inactive-opacity, 0.2);
+}
+button.swiper-pagination-bullet {
+    border: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+.swiper-pagination-clickable .swiper-pagination-bullet {
+    cursor: pointer;
+}
+.swiper-pagination-bullet:only-child {
+    display: none !important;
+}
+.swiper-pagination-bullet-active {
+    opacity: var(--swiper-pagination-bullet-opacity, 1);
+    background: var(--swiper-pagination-color, var(--swiper-theme-color));
+}
+.swiper-pagination-vertical.swiper-pagination-bullets,
+.swiper-vertical > .swiper-pagination-bullets {
+    right: var(--swiper-pagination-right, 8px);
+    left: var(--swiper-pagination-left, auto);
+    top: 50%;
+    transform: translate3d(0px, -50%, 0);
+}
+.swiper-pagination-vertical.swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: var(--swiper-pagination-bullet-vertical-gap, 6px) 0;
+    display: block;
+}
+.swiper-pagination-vertical.swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+.swiper-vertical > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+}
+.swiper-pagination-vertical.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet,
+.swiper-vertical > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
+    display: inline-block;
+    transition: 0.2s transform, 0.2s top;
+}
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 4px);
+}
+.swiper-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+.swiper-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
+    transition: 0.2s transform, 0.2s left;
+}
+.swiper-horizontal.swiper-rtl > .swiper-pagination-bullets-dynamic .swiper-pagination-bullet,
+:host(.swiper-horizontal.swiper-rtl) .swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
+    transition: 0.2s transform, 0.2s right;
+}
+.swiper-pagination-fraction {
+    color: var(--swiper-pagination-fraction-color, inherit);
+}
+.swiper-pagination-progressbar {
+    background: var(--swiper-pagination-progressbar-bg-color, rgba(0, 0, 0, 0.25));
+    position: absolute;
+}
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+    background: var(--swiper-pagination-color, var(--swiper-theme-color));
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(0);
+    transform-origin: left top;
+}
+.swiper-rtl .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+    transform-origin: right top;
+}
+.swiper-horizontal > .swiper-pagination-progressbar,
+.swiper-pagination-progressbar.swiper-pagination-horizontal,
+.swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite,
+.swiper-vertical > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite {
+    width: 100%;
+    height: var(--swiper-pagination-progressbar-size, 4px);
+    left: 0;
+    top: 0;
+}
+.swiper-horizontal > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite,
+.swiper-pagination-progressbar.swiper-pagination-horizontal.swiper-pagination-progressbar-opposite,
+.swiper-pagination-progressbar.swiper-pagination-vertical,
+.swiper-vertical > .swiper-pagination-progressbar {
+    width: var(--swiper-pagination-progressbar-size, 4px);
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+.swiper-pagination-lock {
+    display: none;
+}
+.swiper-scrollbar {
+    border-radius: var(--swiper-scrollbar-border-radius, 10px);
+    position: relative;
+    -ms-touch-action: none;
+    background: var(--swiper-scrollbar-bg-color, rgba(0, 0, 0, 0.1));
+}
+.swiper-scrollbar-disabled > .swiper-scrollbar,
+.swiper-scrollbar.swiper-scrollbar-disabled {
+    display: none !important;
+}
+.swiper-horizontal > .swiper-scrollbar,
+.swiper-scrollbar.swiper-scrollbar-horizontal {
+    position: absolute;
+    left: var(--swiper-scrollbar-sides-offset, 1%);
+    bottom: var(--swiper-scrollbar-bottom, 4px);
+    top: var(--swiper-scrollbar-top, auto);
+    z-index: 50;
+    height: var(--swiper-scrollbar-size, 4px);
+    width: calc(100% - 2 * var(--swiper-scrollbar-sides-offset, 1%));
+}
+.swiper-scrollbar.swiper-scrollbar-vertical,
+.swiper-vertical > .swiper-scrollbar {
+    position: absolute;
+    left: var(--swiper-scrollbar-left, auto);
+    right: var(--swiper-scrollbar-right, 4px);
+    top: var(--swiper-scrollbar-sides-offset, 1%);
+    z-index: 50;
+    width: var(--swiper-scrollbar-size, 4px);
+    height: calc(100% - 2 * var(--swiper-scrollbar-sides-offset, 1%));
+}
+.swiper-scrollbar-drag {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background: var(--swiper-scrollbar-drag-bg-color, rgba(0, 0, 0, 0.5));
+    border-radius: var(--swiper-scrollbar-border-radius, 10px);
+    left: 0;
+    top: 0;
+}
+.swiper-scrollbar-cursor-drag {
+    cursor: move;
+}
+.swiper-scrollbar-lock {
+    display: none;
+}
+.swiper-zoom-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.swiper-zoom-container > canvas,
+.swiper-zoom-container > img,
+.swiper-zoom-container > svg {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+.swiper-slide-zoomed {
+    cursor: move;
+    touch-action: none;
+}
+.swiper .swiper-notification,
+swiper-container .swiper-notification {
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    opacity: 0;
+    z-index: -1000;
+}
+.swiper-free-mode > .swiper-wrapper {
+    transition-timing-function: ease-out;
+    margin: 0 auto;
+}
+.swiper-grid > .swiper-wrapper {
+    flex-wrap: wrap;
+}
+.swiper-grid-column > .swiper-wrapper {
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.swiper-fade.swiper-free-mode .swiper-slide {
+    transition-timing-function: ease-out;
+}
+.swiper-fade .swiper-slide {
+    pointer-events: none;
+    transition-property: opacity;
+}
+.swiper-fade .swiper-slide .swiper-slide {
+    pointer-events: none;
+}
+.swiper-fade .swiper-slide-active,
+.swiper-fade .swiper-slide-active .swiper-slide-active {
+    pointer-events: auto;
+}
+.swiper-cube {
+    overflow: visible;
+}
+.swiper-cube .swiper-slide {
+    pointer-events: none;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    z-index: 1;
+    visibility: hidden;
+    transform-origin: 0 0;
+    width: 100%;
+    height: 100%;
+}
+.swiper-cube .swiper-slide .swiper-slide {
+    pointer-events: none;
+}
+.swiper-cube.swiper-rtl .swiper-slide {
+    transform-origin: 100% 0;
+}
+.swiper-cube .swiper-slide-active,
+.swiper-cube .swiper-slide-active .swiper-slide-active {
+    pointer-events: auto;
+}
+.swiper-cube .swiper-slide-active,
+.swiper-cube .swiper-slide-next,
+.swiper-cube .swiper-slide-next + .swiper-slide,
+.swiper-cube .swiper-slide-prev {
+    pointer-events: auto;
+    visibility: visible;
+}
+.swiper-cube .swiper-slide-shadow-bottom,
+.swiper-cube .swiper-slide-shadow-left,
+.swiper-cube .swiper-slide-shadow-right,
+.swiper-cube .swiper-slide-shadow-top {
+    z-index: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.swiper-cube .swiper-cube-shadow {
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    z-index: 0;
+}
+.swiper-cube .swiper-cube-shadow:before {
+    content: "";
+    background: #000;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    filter: blur(50px);
+}
+.swiper-flip {
+    overflow: visible;
+}
+.swiper-flip .swiper-slide {
+    pointer-events: none;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    z-index: 1;
+}
+.swiper-flip .swiper-slide .swiper-slide {
+    pointer-events: none;
+}
+.swiper-flip .swiper-slide-active,
+.swiper-flip .swiper-slide-active .swiper-slide-active {
+    pointer-events: auto;
+}
+.swiper-flip .swiper-slide-shadow-bottom,
+.swiper-flip .swiper-slide-shadow-left,
+.swiper-flip .swiper-slide-shadow-right,
+.swiper-flip .swiper-slide-shadow-top {
+    z-index: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.swiper-creative .swiper-slide {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: hidden;
+    transition-property: transform, opacity, height;
+}
+.swiper-cards {
+    overflow: visible;
+}
+.swiper-cards .swiper-slide {
+    transform-origin: center bottom;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: hidden;
+}
+.video_inside{
+    width:100%;
+    max-height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-color:black;
+    text-align:center ;
+    margin:auto;
+    position:absolute   ;
+    
+    
+    
+}
+
+video{
+    width:100%;
+    max-height: 100%;
+}
+
+
+.left_side_info{
+    max-width:80%;
+    position:absolute  ;
+    bottom:0;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:3vh;
+    left:0;
+}
+.right_side_info{
+    
+    display:flex;
+    flex-direction:column;
+    position:absolute ;
+    bottom:0;
+    right:0;
+    float:right;
+    margin-right:2%;
+}
+
+
+.picture{
+    width:20%;
+  width:40px;
+  height:40px;
+  margin-left:2%;
+  padding-right:1%;
+    
+}
+
+.profile_img{
+  border-radius:50%;
+  
+}
+.data {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+   position:relative ;
+   width:80%;
+}
+
+
+
+.ellipse { 
+overflow: hidden; 
+white-space: nowrap; 
+text-overflow: ellipsis; 
+}
+.title,.publisher{
+    max-width:100%;
+}
+.follow{
+    
+    color:rgb(230,0,0,.8);
+    font-weight:500;
+    padding-left:2px;
+    padding-right:2px;
+    border-radius:5px;
+}
+.follow_plus_ifad{
+    margin:0;
+    display:flex;
+    flex-direction:row;
+  align-items: center;
+}
+.ad{
+    background-color:rgb(200,0,0,.3);
+    display:inline-block ;
+    color:rgb(200,0,0,.8);
+    padding:.2% 2% .2% 2%;
+    border-radius:4px;
+    font-weight:800;
+    
+}
+
+.ad-swipe-in{
+    background-color:rgb(200,0,0,.3);
+    display:inline-block ;
+    color:rgb(200,0,0,.8);
+    padding:.2% 1% .2% 1%;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    margin-left:1%;
+    
+}
+
+.swipe_in_text{  
+    background-color:rgb(200,0,0,.3);
+    display:inline-block ;
+    color:rgb(200,0,0,.8);
+    padding:.2% 1% .2% 1%;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    font-weight:500;
+    color:white;
+}
+.publisher_plus_verified{
+    margin:0;
+    display:flex;
+    flex-direction:row;
+  align-items: center;
+}   
+.publisher{
+    color:white;
+    font-weight:500;
+}
+.title{
+    font-weight:300;
+    color:white;
+}
+
+.shadows{
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.7));
+}
+.likes_box,.comments_box,.shares_box{
+    margin-bottom:3.5vh;
+    display:flex;
+    flex-direction:column;
+}
+.report_box{
+    margin-bottom:3vh;
+    
+}
+
+
+
+.custom-icon-size {
+  font-size: 1.6em;
+}
+.opacity-less{
+    opacity:.8;
+}
+.likes_text_count,.comments_text_count{
+    font-size:15px;
+    font-weight:700;
+    
+    
+    
+}
+
+.shadow_new {
+  text-shadow: 0 4px 9px rgba(0, 0, 0, 0.4);
+}
+.verified:after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Twitter_Verified_Badge.svg/800px-Twitter_Verified_Badge.svg.png) no-repeat;
+    background-size: contain;
+    display: inline-block;
+}
+
+body{
+    
+    background-color:red;
+
+
+}
+#dialog {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    visibility:hidden;
+    left: 0;
+    border-radius: 10px 10px 0px 0px;
+    border: 1px solid #ddd;
+    -webkit-transition: display 1s ease-out;
+    -o-transition: display 1s ease-out;
+    transition: display 1s ease-out;
+    z-index:999;
+    background-color:white;
+    
+}
+.input_cmts_and_close {
+    padding: 3% 4% 1% 2%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    color:black;
+    font-size: 17px;
+    border-bottom: .5px solid #ddd;
+    
+  
+}
+h3{
+  margin:0;
+}
+.cc-cross {
+    float: left;
+    color:black;
+    font-size: 25px;
+    padding: 0;
+    
+}
+.cmdt {
+    color: black;
+}
+.dialog-content {
+    overflow: scroll;
+    padding-left: 13px;
+    padding-right:13px;
+    padding-bottom:13px;
+    max-height: 50vh;
+    
+}
+
+#comments {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    
+}
+.google-input {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #f2f2f2;
+    border-radius: 25px;
+    padding: 0 20px;
+    height: 40px;
+    margin-bottom: 1vh;
+}
+
+.google-input input {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.search-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.sub-div-f {
+
+
+
+display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-overflow: ellipsis; 
+
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: rgb(255,255,255);
+    
+    padding: 2%;
+    
+    background-color:white;
+    
+
+   
+    
+}
+.sub-div-f:not(:last-child) {
+ border-bottom:.8px solid #ddd;
+ 
+  }
+
+.sub-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+.user-profile {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.userdata {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.user-name_x {
+    font-weight: bold;
+    margin-right: 10px;
+    color: black;
+    font-weight: 800;
+}
+
+.posting-time_x {
+    font-size: 0.8em;
+    color: black;
+}
+
+.user-comment_x {
+    padding-top: .7vh;
+    border-radius: 5px;
+    padding: 2%;
+    color: black;
+}
+.comment_stastic {
+  display: flex;
+  align-items: center;
+}
+
+.likes_comments, .replies_comments{
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.marginAtTop2vh{
+    margin-top:2vh;
+}
+
+.like-count, .reply-count {
+  margin-left: 1.4px;
+}
+
+.comment_svg{
+    width:15px;
+    height:15px;
+}
+
+.like-count, .reply-count {
+  margin-left: 1.4px;
+  color:black;
+}
+
+.likes_comments, .replies_comments{
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+.mik-container{
+    text-align: center;
+}
+.mik{
+    color:black;
+}
+.no-padding{
+    padding:0;
+}
+.black{
+    color:black;
+}
+
+.pro{
+    background-color:rgb(200,0,0,.3);
+    display:inline-block ;
+    color:rgb(200,0,0,.8);
+    padding:.2% 2% .2% 2%;
+    border-radius:4px;
+    font-weight:800;
+    font-size:13px;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    height:15px;
+    
+}
+.loader_bearer_x{
+display:flex;
+justify-content:center;
+text-align:center;
+padding-bottom:60px;
+
+}
+.loader_x{
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(45deg,transparent,transparent 40%,#000);
+  animation: animate 2s linear infinite;
+}
+@keyframes animate {
+  0%{
+    transform: rotate(0deg);
+    filter: hue-rotate(0deg)
+  }
+  100%{
+    transform: rotate(360deg);
+    filter: hue-rotate(360deg);
+  }
+}
+.loader_x:before{
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  background: #fff;
+  border-radius: 50%;
+  z-index: 1000;
+}
+.loader_x:after{
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: linear-gradient(45deg,transparent,transparent 40%, #000);
+  border-radius: 50%;
+  z-index: 1000;
+  z-index: 1;
+}
+ .able_to_swipe{
+    color:white;
+ }
+ 
+ 
+.Shorts_progressBarContainer {
+  flex-grow:1;
+  width: 100%;
+  height: 2.5px;
+  background-color:transparent;
+  border-bottom: 5px;
+  overflow: hidden;
+  margin:0;
+  outline:none;
+  border-radius:0px 0px 5px 5px;
+  position:absolute  ;
+  background-color:transparent ;
+  bottom:0;
+  margin-bottom:0.3vh;
+}
+
+
+
+
+
+
+.Shorts_progressBar {
+  height: 100%;
+  
+    width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  /*
+ background-image: linear-gradient( 135deg, #FF96F9 10%, #C32BAC 100%);*/
+background-color: white;
+  
+}
+
+
+
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+  .top_options{
+    position:absolute;
+    z-index:2;
+    width:100%;
+    border-bottom-right-radius:5px;
+    padding:3%;
+    margin:0;
+    top:0;
+
+    }
+    .bottom_short_options{
+position:absolute;
+z-index:2;
+width:100%;
+background-color:rgb(2,255,255,0.6);
+border-bottom:1px solid #ddd;
+border-bottom-left-radius:5px;
+border-bottom-right-radius:5px;
+padding:3%;
+    }
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-height: 100%;
+      overflow: hidden;
+      
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  
+    </style>
+  <style>
+  
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+  .top_options{
+    position:absolute;
+    z-index:2;
+    width:100%;
+    border-bottom-right-radius:5px;
+    padding:3%;
+    margin:0;
+    top:0;
+
+    }
+    .bottom_short_options{
+position:absolute;
+z-index:2;
+width:100%;
+background-color:rgb(2,255,255,0.6);
+border-bottom:1px solid #ddd;
+border-bottom-left-radius:5px;
+border-bottom-right-radius:5px;
+padding:3%;
+    }
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+   .main-container {
+  display: flex; /* use flexbox to position child divs */
+  justify-content: space-between; /* space the child divs equally along the main container */
+  align-items: center; /* center the child divs vertically within the main container */
+   /* set the height of the main container */
+  /* set the background color of the main container */
+   /* add some padding to the main container */
+}
+
+.left-div,
+.right-div,
+.center-div {
+   /* set the height of the child divs */
+   /* set the width of the child divs */
+}
+
+.left-div {
+  
+}
+
+.center-div {
+  display:flex;
+  flex-direction:row;
+  
+}
+
+.right-div {
+  
+}
+
+
+.content_loader {
+ 
+  border: 2px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 2px solid  #cc208e;
+  width: 15px;
+  height: 15px;
+  -webkit-animation: spin 2s linear
+  infinite;
+  animation: spin 2s linear infinite;
+}
+
+
+
+
+
+
+
+@-webkit-keyframes spin {
+0% {-webkit-transform: rotate(0deg);}
+  100% { -webkit-transform:
+  rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+  </style>
+  <script>
+      
+   const lite_svgs={
+   "main_player":{
+"play":"https://dl.dropboxusercontent.com/s/rwpb9udvr9t95tn/play-svgrepo-com.svg",
+"pause":"https://dl.dropboxusercontent.com/s/o3tte8h3nxuq523/pause-svgrepo-com%20%282%29.svg?dl=0"
+   },
+   "comments":{ 
+"likes":"https://dl.dropboxusercontent.com/s/uav9azjcqw5uf3u/5dd3bbc1-a1cc-4691-a57a-0b33b0d3a5c8.png?dl=0",
+"replies":"https://dl.dropboxusercontent.com/s/8cst7pyreqz9g01/reply-all-2-svgrepo-com.svg"
+}
+}
+var videos=["https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2F%20Ek%20Hogaye%20Hum%20Or%20Tum%20Whatsapp%20Status%20%20Love%20Whatsapp%20Status%20%20Romantic%20Whatsapp%20Status_480p.mp4?alt=media&token=dc5e6fdb-4fc4-4fc1-8bdb-e8a1d526dc27","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2F326146675_477039914637133_1771604610202372216_n.mp4?alt=media&token=ececd8c7-2d3f-4ecd-842b-b2f7b542ec8e","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2F336773177_221880283684139_883392026456208898_n.mp4?alt=media&token=adbcb363-2b49-4f94-b1be-28f3e14b6ccd","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2F7F4A557876827478DD7D8B8C220C2D84_video_dashinit.mp4?alt=media&token=461ee612-d7e8-4583-af67-5cbb47e6c049","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FCHEHRE%20ME%20TERE%20KHUD%20KO%20MAI%20DHUNDU%E0%A5%A4%E0%A5%A4%20WHATSAPP%20STATUS___.mp4?alt=media&token=81cde31a-57ad-4902-918c-007e1c034db0","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FCloser%20(1).mp4?alt=media&token=8809c786-1800-48fa-b74f-89a877c7d9a0","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FCloser.mp4?alt=media&token=34ebaeaa-07e2-4cf2-8994-df909093012a","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FDaku%20Song%20Attitude%20Status%20ft.%20%40BeastBoyShub%20%40GamerFleet%20%40TechnoGamerzOfficial%20%40YesSmartyPie.mp4?alt=media&token=a5c26c07-ecad-466a-b660-f9685aaa69bb","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FDecember%203%2C%202022.mp4?alt=media&token=7c8be9b9-2fef-4dc4-9f1c-19449fd60255","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FDupte%20nunam.mp4?alt=media&token=c0e94df5-05bd-42f1-8b2b-70966d4df932","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FGwizzle%20x%20baby%20-%20justin%20bieber%20whatsapp%20status%20lyrics%20%40gwizzlex%20%40skeditzforever.mp4?alt=media&token=baf2d55a-1eb9-4d06-9827-6e6da0b35ff4","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FIminlive2.mp4?alt=media&token=a101af93-d047-4a94-a9a5-cd1e3de1d3ed","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FIminlove1.mp4?alt=media&token=053b3dfb-b9a1-4e23-ba5d-25785d97f5b4","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FJab%20samajhna%20nahin%20chahte%20tho%20samjhane%20ki%20bhi%20jarurat%20nahin%20%F0%9F%99%8C%F0%9F%AB%B0.mp4?alt=media&token=230c1dd5-c62d-4ebb-8837-a1f791ceda25","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FSaveInsta.App%20-%202993804138217691213.mp4?alt=media&token=4066e467-6749-4aa6-8b0c-7c44191f93ff","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FSad.mp4?alt=media&token=99fcfa7f-b25a-4d87-add8-72523e06dfb5","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FPyar%20Kiya%20To%20Nibhana20151_VidFog.mp4?alt=media&token=6ac679c0-57d4-4fb2-9468-01590aaa9b6f","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FNcs.mp4?alt=media&token=1558abbd-7b52-46cc-a08c-2ac4afffced0","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FLove%20me%20like%20you%20do%20Ejlle%20Goulding%20song%20Asthetic%20Whatsapp%20status%20shorts%20Slowed%20version%20lyrics%20edit.mp4?alt=media&token=34d9a50f-471a-44cf-88d5-a15512a7a43d","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FTu%20Jo%20Nahin%20Hai%20To%20Kuch%20Bhi%20Nahin%20Hai%20WhatsApp%20Status%20Video.mp4?alt=media&token=23291d33-f3e1-4757-b85f-49f049388c81","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FTumhiho.mp4?alt=media&token=b1af3661-2ef2-4bde-bb1f-c5381b24a407","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FUnknown%20brain.mp4?alt=media&token=f0836659-37ac-4543-a72b-79d11bd29a2d","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FTerafitoor.mp4?alt=media&token=e068b00e-4b1f-420f-bbb2-d6180379701d" ,"https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2F%F0%9F%98%82%F0%9F%98%82%40Sakshivk_03%20%23vkishere%20%23vksakshi%20%23shorts%20%23comedy%20%23youtube%20%23funny.mp4?alt=media&token=84d5a431-fdf6-4dba-8737-e317ae6d5652","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2Fy2mate.com%20-%20kya%20keh%20Diya%20hai%20tumne%20o%20Janam%20_480p.mp4?alt=media&token=4960d70b-ee27-424a-8fcc-bc5a1b91f9d4","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2Fy2mate.com%20-%20Kho%20Gaye%20Hum%20Kahan%20%20WhatsappStatus%20%20%20Aesthetic%20%20Status%20%20Instagram%20Reels%20%20Slowed%20Reverb%20_480p.mp4?alt=media&token=1e4f360e-73df-4018-b268-1b97537e0bb6","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2Fy2mate.com%20-%20Dj%20Kantik%20%20Kul%20Remix%20Ringtone%20Mp3%20%20Smart%20Ringtone%20shorts_480p.mp4?alt=media&token=a8258a24-998b-49f9-8346-cd5abe4921ec","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2Fterafitior1.mp4?alt=media&token=71f998c4-3530-4554-88d0-5664eae4e476","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2Fpal%20pal%20dil%20ke%20paas%E2%9D%A3%EF%B8%8F_%20%F0%9F%A5%B0%20Arijit%20Singh%20%F0%9F%91%91%20_%20Lofi%20Remix%20_%20%F0%9F%A6%8BWhatsApp%20_%20%F0%9F%92%ABAhestetic%20Status%20_%20%23shorts.mp4?alt=media&token=cdc62019-bb98-40c4-b893-3ebf4e76fa3b","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2Fkobilangw.mp4?alt=media&token=6f1543d8-2729-42fa-9779-743ea678020a","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2F_Dusk%20till%20dawn_%20best%20whatsapp%20status%F0%9F%94%A5audio%20edit%20%23shorts%20%23youtubeshorts.mp4?alt=media&token=90585be4-8e88-497c-b410-5620980ec485","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2Fbedard%20dade%20chane%20new%20kashmiri%20song%20ayan%20sajad%20status%20%23kashmirisongs%20%23whatsappstatus%20%23ytshorts%20(1)(0).mp4?alt=media&token=9dbdbdcd-f92e-4f2b-bf6c-1d2f4979e96d","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FZara%20Sa%20-%20Jannat%F0%9F%98%8D.mp4?alt=media&token=9c6f2791-cf3d-4297-b1b1-82ddad962a18","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FTera%20Mera%20Safar%20%5BSlowed%2BReverb%5D%20lofi%20%23Shorts%23shortvideo%23tranding%23.mp4?alt=media&token=787322f4-908e-4d95-ac59-63b479958eb0",
+"https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FSamjhawan_Arjit%20Singh_%23sorts%23songstatus%20%23arijitsingh.mp4?alt=media&token=aef43a9e-c749-4e21-8e26-2f450228389d","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FGryffin%20-%20Tie%20Me%20Down%20Status%20_%20English%20Song%20WhatsApp%20Status%20_%20Aesthetic%20video.mp4?alt=media&token=65b4e793-3835-407c-8433-7fe8702c9f77","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FWarriyo%20-%20Mortals%20_%20English%20Song%20WhatsApp%20Status%20Lyrics%20Video%20_%20%23Shorts.mp4?alt=media&token=7fe6c905-df01-40ac-8788-c0732494f188","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FIgnite~Alan%20Walker%20_%20HD%20WhatsApp%20Status%20_%20Full%20Screen%20Status%20_%20%23shorts%20%23love%23MrDreameX.mp4?alt=media&token=6e1893c4-6229-4165-85e0-63047b460fb3","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FSia%20-%20Unstoppable%20Aesthetic%20Whatsapp%20status%20_%20Aesthetic%20world%20_%20%23Sia%20%23Unstoppable.mp4?alt=media&token=e91e4a99-2a85-4d4d-8478-ee583b0f3429","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FTutu%20cover%20by%20Alma%20Zarza%20(lyrics)%20%23shorts%20%23tiktok%20%23music%20%23lyrics.mp4?alt=media&token=31268e33-98dc-47a4-9761-c696f56964ef","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FAya%20Nakamura%20-%20Copines%20(Lyrics)%20_%20_Trop%20tard%2C%20Trop%20tard_%20_%20WhatsApp%20Status%20%23copines%20%23ayanakamura.mp4?alt=media&token=4f573d42-109b-4d3d-9b95-08fbbcd15bb4",
+"https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2Fbezubaan%20kabse%20main%20raha..%20slowmo%20video%20status.mp4?alt=media&token=0811837f-4787-45ee-b1ba-34be59597e31","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FMai%20Phir%20Bhi%20Tumko%20Chahunga%20Song%20Status%20%E2%9D%A4%EF%B8%8F%20_%20Full%20Screen%20Whatsapp%20Status%20_%20Lo-fi%20_%20Arijit%20Singh%E2%9D%A3%EF%B8%8F.mp4?alt=media&token=d99e67cf-5fbe-4b3b-9c87-c6d89978c8af","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FJanam%20janam%20janam%20saath%20chalna%20yuhin%20song%20status%20_%20arijit%20singh%20song%20staus%20%23arijitsingh.mp4?alt=media&token=20b751f1-5589-49d7-8978-b02f861dfce6","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FChehra%20Kyun%20Milta%20Tera%F0%9F%92%95%F0%9F%A5%B0%20_%20Arijit%20Singh%20_%20Best%20Moment%20_.mp4?alt=media&token=1c51d428-9678-471f-8e04-5a1195ae0bc0","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FAe%20Dil%20Hai%20Mushkil%20Song%20Status%20_%20Ye%20Rooh%20Bhi%20Mera%20%F0%9F%A5%BA%20_%20Arijit%20Singh%20Song%20%F0%9F%A5%B0%20_%20%23shorts.mp4?alt=media&token=0e89e85c-3010-4667-a82b-a8411490ccb6"
+
+
+];
+class Element {
+    constructor(p) {
+        p.parent !== undefined && (this.parent = p.parent);
+        p.attributes !== undefined && (this.attributes = p.attributes);
+        p.element !== undefined && (this.element = p.element);
+        p.content !== undefined && (this.content = p.content);
+        p.text !== undefined && (this.text = p.text);
+        p.id !== undefined && (this.id = p.id);
+        p.cssClass !== undefined && (this.cssClass = p.cssClass);
+        p.position !== undefined && (this.position = p.position);
+        p.css !== undefined && (this.css = p.css);
+    }
+
+
+    create(p) {
+        var e;
+        this.parent == undefined && this.position !== undefined && (this.parent = null);
+        if (this.parent !== undefined) {
+            if (this.element !== undefined) {
+                e = document.createElement(this.element);
+                if (this.attributes !== undefined) {
+                    if (this.attributes) {
+                        for (var attr in (this.attributes)) {
+                            e.setAttribute(attr, this.attributes[attr]);
+                        }
+                    }
+                }
+
+                if (this.id !== undefined) {
+                    if (this.id) {
+                        e.setAttribute("id", this.id);
+                    }
+                }
+                if (this.content !== undefined) {
+                    if (this.content) {
+                        e.innerHTML = this.content;
+                    }
+                }
+                if (this.text !== undefined) {
+                    if (this.text) {
+                        e.innerText = this.text;
+                    }
+                }
+
+                if (this.cssClass !== undefined) {
+                    if (this.cssClass) {
+
+                        e.className += " " + this.cssClass + " ";
+
+
+                    }
+                }
+                if (this.css !== undefined) {
+                    if (this.css) {
+                        e.style = this.css;
+                    }
+                }
+
+                if (this.position) {
+                    switch (this.position) {
+                        case "before":
+                            (this.parent).before(e);
+                            break;
+                        case "prepend":
+                            (this.parent).prepend(e);
+                            break;
+                        case "after":
+                            (this.parent).after(e);
+                            break;
+                        default:
+                            try {
+                                this.position["replace"].parentNode.replaceChild(e, this.position["replace"]);
+
+
+                            } catch (er) {
+                                console.error(er);
+                                //(this.parent).appendChild(e); 
+                            }
+                            break;
+                    }
+                } else {
+                    (this.parent).appendChild(e);
+                }
+            }
+        } else {
+            //parent is not defined so check if replace parameter is. 
+
+
+            console.error(`You must specify parent or set it to "null" incase you are replacing a child/element , error while : creating the element ${this.element}`);
+            //(this.parent).appendChild(e); 
+
+
+        }
+
+        return e;
+    }
+}
+
+function convertToTimeAgo(dateStr) {
+  const date = new Date(dateStr);
+  const now = new Date();
+  const diffInMilliseconds = now.getTime() - date.getTime();
+  const diffInMinutes = diffInMilliseconds / (1000 * 60);
+  const diffInMonths = diffInMinutes / (60 * 24 * 30);
+
+  if (diffInMonths > 2) {
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = date.toLocaleString('default', { month: 'short' });
+    const year = date.getFullYear().toString();
+    return `${day} ${month} ${year}`;
+  } else {
+    const options = { day: '2-digit', month: 'short', year: 'numeric' };
+    return date.toLocaleDateString('en-US', options);
+  }
+}
+function getRandomVerification() {
+  const randomNumber = Math.floor(Math.random() * 10) + 1;
+  if(randomNumber <6){
+      return ` <div class="verified"></div>`;
+  }else{
+      return "";
+  }
+  
+  }
+  
+  
+
+
+function randomName(namesArray) {
+  var namesArray = [
+  "Ahmad Ali",
+  "Hamza Khan",
+  "Hassan Sheikh",
+  "Omar Hassan",
+  "Khalid Ibrahim",
+  "Malik Hussain",
+  "Ali Abdullah",
+  "Yusuf Ali",
+  "Tariq Rahman",
+  "Amir Qureshi",
+  "Ahmed Ahmed",
+  "Ibrahim Ahmed",
+  "Omar Ahmed",
+  "Khalid Ali",
+  "Abdullah Ali",
+  "Bilal Muhammad",
+  "Yusuf Hussain",
+  "Hassan Ali",
+  "Amin Ahmed",
+  "Rashid Khan",
+  "Abdullah Rahman",
+  "Hamza Ali",
+  "Muhammad Ali",
+  "Salman Ahmed",
+  "Ali Hussain",
+  "Saeed Ali",
+  "Omar Ali",
+  "Mustafa Khan",
+  "Abdullah Sheikh",
+  "Omar Rahman",
+  "Hasan Ahmed",
+  "Usman Ali",
+  "Imran Sheikh",
+  "Nabil Ahmed",
+  "Sami Khan",
+  "Khalid Hussain",
+  "Tariq Ali",
+  "Anas Sheikh",
+  "Abdullah Ibrahim",
+  "Usman Ahmad",
+  "Farhan Ali",
+  "Hassan Hussain",
+  "Abdullah Ahmad",
+  "Hassan Sheikh",
+  "Amin Ali",
+  "Khalid Ahmad",
+  "Saeed Ahmed",
+  "Musa Khan",
+  "Ali Khan",
+  "Zain Ali",
+  "Adnan Hussain",
+  "Naveed Ahmed",
+  "Omar Hussain",
+  "Ali Ahmed",
+  "Jawad Hussain",
+  "Imran Ali",
+  "Ali Rahman",
+  "Javed Ahmed",
+  "Nasir Ali",
+  "Nadeem Ahmed",
+  "Ali Shah",
+  "Hussein Ahmed",
+  "Yasin Ali",
+  "Junaid Ahmed",
+  "Rafiq Hussain",
+  "Noman Ali",
+  "Shoaib Ahmed",
+  "Asif Khan",
+  "Zaid Ali",
+  "Rizwan Ahmed",
+  "Ali Akbar",
+  "Raheem Khan",
+  "Waseem Ahmed",
+  "Zahid Ali",
+  "Ismail Ahmed",
+  "Amir Hussain",
+  "Hadi Ali",
+  "Asad Ali",
+  "Nadeem Hussain",
+  "Tahir Ali",
+  "Tariq Hussain",
+  "Javed Hussain",
+  "Abdul Malik",
+  "Adil Khan",
+  "Azhar Ali",
+  "Younus Ahmed",
+  "Akram Ahmed",
+  "Samiullah Khan",
+  "Sikander Ali",
+  "Younus Ali",
+  "Ibrahim Hussain",
+  "Omar Shah",
+  "Anwar Ali",
+  "Junaid Hussain",
+  "Akhtar Ali",
+  "Naeem Ahmed",
+  "Shakil Ahmed",
+  "Asif Ahmed",
+  "Aisha Ahmed",
+  "Fatima Ali",
+  "Amina Hussain",
+  "Zainab Ali",
+  "Mariam Sheikh",
+  "Sara Ahmed",
+  "Khadija Khan",
+  "Rabia Ali",
+  "Zara Hussain",
+  "Ayesha Ali",
+  "Nadia Rahman",
+  "Sadia Khan",
+  "Safia Ali",
+  "Sana Sheikh",
+  "Sumaira Ahmed",
+  "Saima Hussain",
+  "Aaliyah Ali",
+  "Madiha Hassan",
+  "Aqsa Ahmed",
+  "Amna Hussain",
+  "Iqra Ali",
+  "Asma Sheikh",
+  "Rukhsar Khan",
+  "Tania Ahmed",
+  "Humaira Hussain",
+  "Yasmeen Ali",
+  "Alia Ahmed",
+  "Mahnoor Sheikh",
+  "Fiza Khan",
+  "Huma Ali",
+  "Areeba Hussain",
+  "Kiran Ahmed",
+  "Rabia Khan",
+  "Kainat Hussain",
+  "Anam Ali",
+  "Asiya Ahmed",
+  "Farah Sheikh",
+  "Naima Khan",
+  "Saba Ali",
+  "Zeba Ahmed",
+  "Sahar Hussain",
+  "Saima Khan",
+  "Sana Ali",
+  "Sadia Ahmed",
+  "Rabia Sheikh",
+  "Nida Khan",
+  "Maham Ali",
+  "Saher Hussain",
+  "Mehwish Ahmed",
+  "Hina Ali",
+  "Arfa Khan",
+  "Fareeha Hussain",
+  "Rabail Ali",
+  "Aneela Ahmed",
+  "Sidra Hussain",
+  "Aqsa Ali",
+  "Bisma Sheikh",
+  "Asma Khan",
+  "Anila Ali",
+  "Maimoona Ahmed",
+  "Rida Hussain",
+  "Neha Khan",
+  "Nazia Ali",
+  "Hoorain Ahmed",
+  "Jannat Hussain",
+  "Huda Ali",
+  "Malaika Sheikh",
+  "Inaya Khan",
+  "Shazia Ahmed",
+  "Saman Hussain",
+  "Sehrish Ali",
+  "Sohaila Ahmed",
+  "Sahira Hussain",
+  "Saliha Ali",
+  "Sanaullah Ahmed",
+  "Sania Hussain",
+  "Sara Khan",
+  "Shireen Ali",
+  "Shumaila Ahmed",
+  "Siddiqa Hussain",
+  "Suhaila Khan",
+  "Sumaira Ali",
+  "Sumayyah Ahmed",
+  "Suraiya Sheikh",
+  "Tahira Khan",
+  "Tasneem Hussain",
+  "Uzma Ali",
+  "Wajiha Ahmed",
+  "Yasira Khan",
+  "Zahra Hussain",
+  "Zakiya Ali",
+  "Zareen Ahmed",
+  "Zehra Hussain",
+  "Zunaira Ali",
+  "Zubaida Khan",
+  "Zakiyah Ali",
+  "Zarina Ahmed",
+  "Zainab Hussain",
+  "Zoya Ali",
+  "Aisha Nusrat",
+  "Aisha Rukhsar",
+  "Aisha Sadiqa",
+  "Aisha Safiya",
+  "Aisha Sumaiya",
+  "Aisha Yasmin",
+  "Amina Zahra",
+  "Asma Nadia",
+  "Asma Ruqayya",
+  "Asma Zainab",
+  "Aziza Habiba",
+  "Aziza Khadija",
+  "Bisma Fatima",
+  "Farah Aisha",
+  "Farah Mariam",
+  "Fathima Yasmeen",
+  "Fatima Amina",
+  "Fatima Mariam",
+  "Fatima Rukhsar",
+  "Fatima Zahra",
+  "Habiba Khadija",
+  "Hafsa Mariam",
+  "Hafsa Naima",
+  "Hafsa Safiya",
+  "Halima Aisha",
+  "Halima Mariam",
+  "Halima Zainab",
+  "Humaira Aisha",
+  "Humaira Sadiqa",
+  "Humaira Sumaiya",
+  "Inaya Sadiqa",
+  "Inaya Yasmin",
+  "Jannat Amina",
+  "Jannat Fatima",
+  "Jasmine Mariam",
+  "Kanza Zahra",
+  "Khadija Aisha",
+  "Khadija Fatima",
+  "Khadija Sadiqa",
+  "Khadija Sumaiya",
+  "Lubna Zahra",
+  "Madiha Khadija",
+  "Madiha Zahra",
+  "Maham Zahra",
+  "Mariam Aisha",
+  "Mariam Naima",
+  "Mariam Yasmin",
+  "Marwa Zahra",
+  "Mehwish Fatima",
+  "Nadia Amina",
+  "Nadia Sadiqa",
+  "Nadia Yasmin",
+  "Naima Aisha",
+  "Naima Zahra",
+  "Nasira Khadija",
+  "Nasira Zahra",
+  "Nida Amina",
+  "Nida Mariam",
+  "Nida Rukhsar",
+  "Nida Yasmin",
+  "Nighat Zahra",
+  "Nimra Mariam",
+  "Nimra Yasmin",
+  "Noureen Zahra",
+  "Noureen Zainab",
+  "Nuzhat Amina",
+  "Nuzhat Sadiqa",
+  "Nuzhat Yasmin",
+  "Rabia Aisha",
+  "Rabia Mariam",
+  "Rabia Zainab",
+  "Rafia Khadija",
+  "Rafia Zahra",
+  "Rukhsar Aisha",
+  "Rukhsar Fatima",
+  "Rukhsar Naima",
+  "Sabiha Zahra",
+  "Sadiqa Khadija",
+  "Sadiqa Mariam",
+  "Sadiqa Zahra",
+  "Saima Aisha",
+  "Saima Yasmin",
+  "Sakina Zahra",
+  "Samiya Fatima",
+  "Samiya Mariam",
+  "Sanaa Amina",
+  "Sanaa Yasmin",
+  "Saniya Aisha",
+  "Saniya Mariam",
+  "Saniya Zahra",
+  "Saniya Zainab",
+  "Sara Aisha",
+  "Sara Mariam",
+    "Sarah Yasmin",
+  "Suhana Amina",
+  "Sumaiya Fatima",
+  "Sumaiya Yasmin",
+  "Tahira Khadija",
+  "Tahira Zahra",
+  "Umaima Aisha",
+  "Umaima Zahra",
+  "Uzma Fatima",
+  "Wafa Amina",
+  "Wafa Mariam",
+  "Wafa Sadiqa",
+  "Wajiha Khadija",
+  "Wajiha Zahra",
+  "Yasmeen Aisha",
+  "Yasmeen Mariam",
+  "Yasmeen Rukhsar",
+  "Yasmeen Zahra",
+  "Zainab Aisha",
+  "Zainab Mariam",
+  "Zainab Sadiqa",
+  "Zainab Sumaiya",
+  "Zainab Yasmin",
+  "Zakiya Khadija",
+  "Zakiya Zahra",
+  "Zara Amina",
+  "Zara Mariam",
+  "Zara Sadiqa",
+  "Zara Zahra",
+  "Zehra Aisha",
+  "Zehra Mariam",
+  "Zehra Naima",
+  "Zehra Zahra"
+
+
+];
+  var randomIndex = Math.floor(Math.random() * namesArray.length);
+  return namesArray[randomIndex];
+}
+
+
+    function getRandomUrl(a) {
+  const randomNumber = Math.floor(Math.random() * 10) + 1;
+  
+  
+  if(randomNumber <4){
+      return  ("https://xsgames.co/randomusers/assets/avatars/"+getRandomGender()+"/"+getRandomNumber()+".jpg");
+  }else{
+  
+      if(randomNumber <7&& randomNumber >3){
+          return (
+      "https://source.unsplash.com/random/200x200/?boy,girl&rand="+Math.random()
+  );
+          
+      }else{
+      if(randomNumber >6&& randomNumber <9){
+          return ("https://picsum.photos/150/150?random="+Math.random())
+          }else{
+              return a;
+          }
+      }
+      
+  }
+  
+  }
+  
+  
+    
+    function getRandomGender() {
+  const randomNumber = Math.floor(Math.random() * 10) + 1;
+  return randomNumber < 5 ? "male" : "female";
+}
+
+function getRandomNumber() {
+  return Math.floor(Math.random() * 71);
+}
+
+        function NewData(a){
+    var element53x = new Element({
+parent: comments,
+element: 'div',
+attributes: {
+'class': 'loader_bearer_x'
+}
+
+}).create();
+
+var element54x = new Element({
+parent: element53x,
+element: 'div',
+attributes: {
+'class': 'loader_x'
+}
+
+}).create();
+
+const div2 = document.getElementById("coner");
+
+// Get a reference to the parent element of div2
+
+const parent = document.querySelector("#coner").parentNode;
+
+// Remove the div2 element from the parent
+parent.removeChild(div2);
+
+
+
+
+// Fetch the data from the URL
+var commentsfor=[
+  "You're amazing!",
+  "So talented!",
+  "Incredible skills!",
+  "Unbelievable talent",
+  "You deserve fame",
+  "Wow, impressive!",
+  "Absolutely unreal",
+  "Mind-blowing talent",
+  "Insanely good",
+  "Just awesome",
+  "You're a star!",
+  "So impressive!",
+  "Beyond talented",
+  "Truly inspiring",
+  "You're a legend!",
+  "Absolutely insane",
+  "So gifted!",
+  "Next level talent",
+  "Astonishing skills",
+  "Amazing performance",
+  "You're killing it!",
+  "So much talent",
+  "Mind-blowing skills",
+  "Legendary work",
+  "You're a genius!",
+  "Crazy good!",
+  "Unreal talent",
+  "Stunning performance",
+  "You're a pro!",
+  "So damn good",
+  "Just incredible",
+  "Truly amazing",
+  "So much potential",
+  "Unreal performance",
+  "You're going places",
+  "Absolutely outstanding",
+  "Impressive work",
+  "Killing it, bro",
+  "So inspiring!",
+  "Can't stop watching",
+  "Beautiful video",
+  "Oh my gosh!",
+  "Amazing job!",
+  "Great work!",
+  "Incredible performance",
+  "Absolutely stunning",
+  "Impressive skills",
+  "Well done!",
+  "Fantastic job",
+  "Marvelous video",
+  "Awesome work",
+  "Exquisite voice",
+  "Breathtaking view",
+  "Excellent performance",
+  "Flawless execution",
+  "Outstanding job",
+  "Spectacular work",
+  "Brilliant performance",
+  "Wonderful job",
+  "Top-notch work",
+  "Astounding work",
+  "Mind-blowing performance",
+  "Fantastic performance",
+  "Fabulous job",
+  "Terrific work",
+  "Excellent job",
+  "Superb work",
+  "Dazzling performance",
+  "Great video",
+  "Beautiful song",
+  "Mesmerizing video",
+  "Awesome performance",
+  "Phenomenal job",
+  "Impressive video",
+  "Masterful work",
+  "Elegant execution",
+  "Wonderful video",
+  "Brilliant video",
+  "Impressive job",
+  "Stunning performance",
+  "Gorgeous work",
+  "Exceptional job",
+  "Outstanding video",
+  "Incredible video",
+  "Splendid performance",
+  "Amazing video",
+  "Fantastic song",
+  "Magnificent job",
+  "Perfect execution",
+  "Enchanting video",
+  "Superb video",
+  "Fabulous video",
+  "Masterful performance",
+  "Great job",
+  "Breathtaking performance",
+  "Beautiful work",
+  "Sensational performance",
+  "Amazing song",
+  "Outstanding performance",
+  "Incredible work",
+  "Brilliant job",
+  "Astonishing performance",
+  "Terrific video",
+  "Awesome video",
+  "Excellent video",
+  "Impressive performance",
+  "Superb performance",
+  "Exceptional work",
+  "Gorgeous performance",
+  "Fabulous song",
+  "Spectacular performance",
+  "Stunning video",
+  "Wonderful song",
+  "Marvelous work",
+  "Flawless performance",
+  "Phenomenal performance",
+  "Top-notch performance",
+  "Exquisite work",
+  "Dazzling video",
+  "Breathtaking video",
+  "Magnificent performance"
+];
+    
+var timesfor=[
+  "2022-10-02T17:42:39Z",
+  "2022-04-17T15:14:17Z",
+  "2022-10-04T07:05:16Z",
+  "2022-10-01T03:49:31Z",
+  "2022-09-30T17:12:15Z",
+  "2022-03-28T04:43:13Z",
+  "2022-09-19T16:48:03Z",
+  "2022-03-28T04:42:57Z",
+  "2022-11-04T01:28:05Z",
+  "2022-04-01T17:28:24Z",
+  "2022-05-31T13:13:26Z",
+  "2022-11-06T14:29:29Z",
+  "2022-04-01T17:28:14Z",
+  "2023-02-25T04:45:50Z",
+  "2022-04-02T08:31:28Z",
+  "2023-02-24T13:22:20Z",
+  "2022-10-01T18:21:35Z",
+  "2022-08-09T11:44:08Z",
+  "2022-11-21T06:24:07Z",
+  "2022-11-07T11:16:07Z",
+  "2022-11-08T15:42:54Z",
+  "2022-10-13T14:30:32Z",
+  "2023-02-25T17:32:17Z",
+  "2023-02-25T17:36:04Z",
+  "2022-03-29T11:54:02Z",
+  "2022-10-04T14:30:46Z",
+  "2023-02-08T10:02:05Z",
+  "2022-10-04T14:30:35Z",
+  "2022-12-16T20:10:13Z",
+  "2022-12-31T23:59:59Z",
+  "2023-01-01T00:00:01Z",
+  "2023-01-31T18:20:34Z",
+  "2023-02-01T12:45:23Z",
+  "2023-02-14T08:30:45Z",
+  "2023-02-22T17:59:59Z",
+  "2023-02-28T00:00:00Z"
+];
+var comments_data_var=[]
+
+fetch('https://random-data-api.com/api/users/random_user?size=30')
+  .then(response => response.json())
+  .then(users => {
+  
+    // Map the user data to the desired format
+     comments_data_var = users.map((user, i) => {
+      // Select a random comment text and time
+      const text = commentsfor[i % commentsfor.length];
+      const time = timesfor[i % timesfor.length];
+      // Generate random likes and replies counts
+      const repliesCount = Math.floor(Math.random() * 50);
+      const likesCount = Math.floor(Math.random() * 50) + 50;
+      // Transform the user data into the desired format
+      return {
+        name: `${user.first_name} ${user.last_name}`,
+        profile_avatar: getRandomUrl(user.avatar) ,
+        time,
+        text,
+        likes: `${likesCount}k`,
+        replies: `${repliesCount}k`
+      };
+    });
+
+    // Sort the comments_data_var array by likes count in descending order
+    comments_data_var.sort((a, b) => {
+      const likesCountA = parseInt(a.likes);
+      const likesCountB = parseInt(b.likes);
+      return likesCountB - likesCountA;
+    });
+
+    // Do something with the resulting data (e.g. log it)
+    
+    
+    // Get a reference to the div2 element
+
+var fragment = document.createDocumentFragment();
+    for (i = 0; i < comments_data_var.length; i++) {
+    
+    // Create a document fragment
+
+
+// Loop through the comments JSON and create new comment nodes
+
+// Append the new comment nodes to the comments section
+
+
+    var element121 = new Element({
+parent: fragment,
+element: 'div',
+attributes: {
+'style': 'min-height:10vh',
+'class': 'sub-div-f'
+}
+
+}).create();
+
+var element122 = new Element({
+parent: element121,
+element: 'div',
+attributes: {
+'class': 'sub-div'
+}
+
+}).create();
+
+var element123 = new Element({
+parent: element122,
+element: 'img',
+attributes: {
+'class': 'user-profile',
+'src': comments_data_var[i]['profile_avatar'],
+'onerror':"this.onerror=null; this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDaz8rMAqILS8Re0Ex6OT_tUgyRGtkYOS3-w&usqp=CAU'"
+}
+
+}).create();
+
+var element124 = new Element({
+parent: element122,
+element: 'div',
+attributes: {
+'class': 'userdata'
+}
+
+}).create();
+
+var element125 = new Element({
+parent: element124,
+element: 'div',
+attributes: {
+'style': 'display:flex;flex-direction:row'
+}
+
+}).create();
+
+var element126 = new Element({
+parent: element125,
+element: 'div',
+attributes: {
+'style': 'margin-right:0',
+'class': 'user-name_x'
+}
+,
+text: randomName ()
+}).create();
+
+var element127 = new Element({
+parent: element125,
+element: 'span'
+,
+content:getRandomVerification()
+}).create();
+
+var element128 = new Element({
+parent: element124,
+element: 'div',
+attributes: {
+'class': 'posting-time_x'
+}
+,
+text: convertToTimeAgo (comments_data_var[i]['time'])
+}).create();
+
+var element129 = new Element({
+parent: element124,
+element: 'div',
+attributes: {
+'class': 'user-comment_x'
+}
+,
+text:comments_data_var[i]['text']
+}).create();
+
+var element130 = new Element({
+parent: element124,
+element: 'div',
+attributes: {
+'class': 'comment_stastic'
+}
+
+}).create();
+
+var element131 = new Element({
+parent: element130,
+element: 'div',
+attributes: {
+'class': 'likes_comments'
+}
+
+}).create();
+
+var element132 = new Element({
+parent: element131,
+element: 'img',
+attributes: {
+'class': 'comment_svg',
+'src': lite_svgs.comments.likes
+}
+
+}).create();
+
+var element133 = new Element({
+parent: element131,
+element: 'span',
+attributes: {
+'class': 'like-count'
+}
+,
+text: comments_data_var[i]['likes']
+}).create();
+
+var element134 = new Element({
+parent: element130,
+element: 'div',
+attributes: {
+'class': 'replies_comments'
+}
+
+}).create();
+
+var element135 = new Element({
+parent: element134,
+element: 'img',
+attributes: {
+'class': 'comment_svg',
+'src': lite_svgs.comments.replies
+}
+
+}).create();
+
+var element136 = new Element({
+parent: element134,
+element: 'span',
+attributes: {
+'class': 'reply-count'
+}
+,
+text: comments_data_var[i]['replies']
+}).create();
+
+var element137 = new Element({
+parent: element130,
+element: 'div',
+attributes: {
+'class': 'replies_comments'
+}
+
+}).create();
+
+var element138 = new Element({
+parent: element137,
+element: 'span',
+attributes: {
+'style': 'font-weight:500',
+'class': 'reply-count'
+}
+,
+text: 'Reply'
+}).create();
+
+
+    
+    
+    
+        
+    if(comments_data_var.length-1==i){
+    
+    const lo = document.querySelector(".loader_bearer_x");
+
+// Get a reference to the parent element of div2
+const parentl = lo.parentNode;
+
+// Remove the div2 element from the parent
+parentl.removeChild(lo);
+
+var element901 = new Element({
+parent: fragment,
+element: 'div',
+attributes: {
+'id': 'coner',
+'class': 'mik-container'
+}
+
+}).create();
+
+var element902 = new Element({
+parent: element901,
+element: 'button',
+attributes: {
+'onclick': 'NewData(this)',
+'id': 'div2a',
+'class': 'mik'
+}
+,
+text: 'Load More'
+}).create();
+
+var element903 = new Element({
+parent: element901,
+element: 'div',
+attributes: {
+'class': 'mik marginAtTop2vh'
+},
+content:'Made in <b class="black">Kashmir </b> &copyfurqanelahie'
+
+
+
+}).create();
+
+    comments.appendChild(fragment);
+    fragment.textContent = null;
+    
+    }
+    }
+
+    
+    
+    
+  })
+  .catch(error => console.error(error));
+
+
+    
+}
+
+    /*
+        <i class="far fa-heart fa-3x"></i> <!-- regular heart icon -->
+<i class="fas fa-heart"></i> <!-- solid heart icon -->
+<i class="far fa-comment"></i> <!-- regular comment icon -->
+<i class="fas fa-comment"></i> <!-- solid comment icon -->*/
+
+
+document.addEventListener('play', function(e) {
+
+
+    var audios = document.getElementsByTagName('audio');
+    for (var i = 0, len = audios.length; i < len; i++) {
+        if (audios[i] != e.target) {
+            audios[i].pause();
+        }
+    }
+    var v = document.getElementsByTagName('video');
+    for (var i = 0, len = v.length; i < len; i++) {
+        if (v[i] != e.target) {
+            v[i].pause();
+        }
+    }
+
+
+}, true);
+function s(a){
+    return document.querySelector(a);
+}
+function liked(a){
+if (a.classList.contains('far')) {
+    a.classList.remove('far');
+    a.classList.add('fas');
+    a.style.color = 'red';
+  } else if (a.classList.contains('fas')) {
+    a.classList.remove('fas');
+    a.classList.add('far');
+    a.style.removeProperty('color');
+  }
+  
+}
+function toggleDialogVisibility(dialogElement) {
+  var computedStyle = getComputedStyle(dialogElement);
+  if (computedStyle.visibility === 'hidden') {
+    dialogElement.style.visibility = 'visible';
+  } else {
+    dialogElement.style.visibility = 'hidden';
+  }
+}
+
+
+
+
+
+function getRandomElement(arr) {
+  var arr=["https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2F%20Ek%20Hogaye%20Hum%20Or%20Tum%20Whatsapp%20Status%20%20Love%20Whatsapp%20Status%20%20Romantic%20Whatsapp%20Status_480p.mp4?alt=media&token=dc5e6fdb-4fc4-4fc1-8bdb-e8a1d526dc27","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2F326146675_477039914637133_1771604610202372216_n.mp4?alt=media&token=ececd8c7-2d3f-4ecd-842b-b2f7b542ec8e","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2F336773177_221880283684139_883392026456208898_n.mp4?alt=media&token=adbcb363-2b49-4f94-b1be-28f3e14b6ccd","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2F7F4A557876827478DD7D8B8C220C2D84_video_dashinit.mp4?alt=media&token=461ee612-d7e8-4583-af67-5cbb47e6c049","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FCHEHRE%20ME%20TERE%20KHUD%20KO%20MAI%20DHUNDU%E0%A5%A4%E0%A5%A4%20WHATSAPP%20STATUS___.mp4?alt=media&token=81cde31a-57ad-4902-918c-007e1c034db0","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FCloser%20(1).mp4?alt=media&token=8809c786-1800-48fa-b74f-89a877c7d9a0","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FCloser.mp4?alt=media&token=34ebaeaa-07e2-4cf2-8994-df909093012a","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FDaku%20Song%20Attitude%20Status%20ft.%20%40BeastBoyShub%20%40GamerFleet%20%40TechnoGamerzOfficial%20%40YesSmartyPie.mp4?alt=media&token=a5c26c07-ecad-466a-b660-f9685aaa69bb","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FDecember%203%2C%202022.mp4?alt=media&token=7c8be9b9-2fef-4dc4-9f1c-19449fd60255","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FDupte%20nunam.mp4?alt=media&token=c0e94df5-05bd-42f1-8b2b-70966d4df932","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FGwizzle%20x%20baby%20-%20justin%20bieber%20whatsapp%20status%20lyrics%20%40gwizzlex%20%40skeditzforever.mp4?alt=media&token=baf2d55a-1eb9-4d06-9827-6e6da0b35ff4","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FIminlive2.mp4?alt=media&token=a101af93-d047-4a94-a9a5-cd1e3de1d3ed","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FIminlove1.mp4?alt=media&token=053b3dfb-b9a1-4e23-ba5d-25785d97f5b4","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FJab%20samajhna%20nahin%20chahte%20tho%20samjhane%20ki%20bhi%20jarurat%20nahin%20%F0%9F%99%8C%F0%9F%AB%B0.mp4?alt=media&token=230c1dd5-c62d-4ebb-8837-a1f791ceda25","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FSaveInsta.App%20-%202993804138217691213.mp4?alt=media&token=4066e467-6749-4aa6-8b0c-7c44191f93ff","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FSad.mp4?alt=media&token=99fcfa7f-b25a-4d87-add8-72523e06dfb5","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FPyar%20Kiya%20To%20Nibhana20151_VidFog.mp4?alt=media&token=6ac679c0-57d4-4fb2-9468-01590aaa9b6f","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FNcs.mp4?alt=media&token=1558abbd-7b52-46cc-a08c-2ac4afffced0","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FLove%20me%20like%20you%20do%20Ejlle%20Goulding%20song%20Asthetic%20Whatsapp%20status%20shorts%20Slowed%20version%20lyrics%20edit.mp4?alt=media&token=34d9a50f-471a-44cf-88d5-a15512a7a43d","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FTu%20Jo%20Nahin%20Hai%20To%20Kuch%20Bhi%20Nahin%20Hai%20WhatsApp%20Status%20Video.mp4?alt=media&token=23291d33-f3e1-4757-b85f-49f049388c81","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FTumhiho.mp4?alt=media&token=b1af3661-2ef2-4bde-bb1f-c5381b24a407","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FUnknown%20brain.mp4?alt=media&token=f0836659-37ac-4543-a72b-79d11bd29a2d","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FTerafitoor.mp4?alt=media&token=e068b00e-4b1f-420f-bbb2-d6180379701d" ,"https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2F%F0%9F%98%82%F0%9F%98%82%40Sakshivk_03%20%23vkishere%20%23vksakshi%20%23shorts%20%23comedy%20%23youtube%20%23funny.mp4?alt=media&token=84d5a431-fdf6-4dba-8737-e317ae6d5652","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2Fy2mate.com%20-%20kya%20keh%20Diya%20hai%20tumne%20o%20Janam%20_480p.mp4?alt=media&token=4960d70b-ee27-424a-8fcc-bc5a1b91f9d4","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2Fy2mate.com%20-%20Kho%20Gaye%20Hum%20Kahan%20%20WhatsappStatus%20%20%20Aesthetic%20%20Status%20%20Instagram%20Reels%20%20Slowed%20Reverb%20_480p.mp4?alt=media&token=1e4f360e-73df-4018-b268-1b97537e0bb6","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2Fy2mate.com%20-%20Dj%20Kantik%20%20Kul%20Remix%20Ringtone%20Mp3%20%20Smart%20Ringtone%20shorts_480p.mp4?alt=media&token=a8258a24-998b-49f9-8346-cd5abe4921ec","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2Fterafitior1.mp4?alt=media&token=71f998c4-3530-4554-88d0-5664eae4e476","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2Fpal%20pal%20dil%20ke%20paas%E2%9D%A3%EF%B8%8F_%20%F0%9F%A5%B0%20Arijit%20Singh%20%F0%9F%91%91%20_%20Lofi%20Remix%20_%20%F0%9F%A6%8BWhatsApp%20_%20%F0%9F%92%ABAhestetic%20Status%20_%20%23shorts.mp4?alt=media&token=cdc62019-bb98-40c4-b893-3ebf4e76fa3b","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2Fkobilangw.mp4?alt=media&token=6f1543d8-2729-42fa-9779-743ea678020a","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2F_Dusk%20till%20dawn_%20best%20whatsapp%20status%F0%9F%94%A5audio%20edit%20%23shorts%20%23youtubeshorts.mp4?alt=media&token=90585be4-8e88-497c-b410-5620980ec485","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2Fbedard%20dade%20chane%20new%20kashmiri%20song%20ayan%20sajad%20status%20%23kashmirisongs%20%23whatsappstatus%20%23ytshorts%20(1)(0).mp4?alt=media&token=9dbdbdcd-f92e-4f2b-bf6c-1d2f4979e96d","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FZara%20Sa%20-%20Jannat%F0%9F%98%8D.mp4?alt=media&token=9c6f2791-cf3d-4297-b1b1-82ddad962a18","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FTera%20Mera%20Safar%20%5BSlowed%2BReverb%5D%20lofi%20%23Shorts%23shortvideo%23tranding%23.mp4?alt=media&token=787322f4-908e-4d95-ac59-63b479958eb0",
+"https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FSamjhawan_Arjit%20Singh_%23sorts%23songstatus%20%23arijitsingh.mp4?alt=media&token=aef43a9e-c749-4e21-8e26-2f450228389d","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FGryffin%20-%20Tie%20Me%20Down%20Status%20_%20English%20Song%20WhatsApp%20Status%20_%20Aesthetic%20video.mp4?alt=media&token=65b4e793-3835-407c-8433-7fe8702c9f77","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FWarriyo%20-%20Mortals%20_%20English%20Song%20WhatsApp%20Status%20Lyrics%20Video%20_%20%23Shorts.mp4?alt=media&token=7fe6c905-df01-40ac-8788-c0732494f188","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FIgnite~Alan%20Walker%20_%20HD%20WhatsApp%20Status%20_%20Full%20Screen%20Status%20_%20%23shorts%20%23love%23MrDreameX.mp4?alt=media&token=6e1893c4-6229-4165-85e0-63047b460fb3","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FSia%20-%20Unstoppable%20Aesthetic%20Whatsapp%20status%20_%20Aesthetic%20world%20_%20%23Sia%20%23Unstoppable.mp4?alt=media&token=e91e4a99-2a85-4d4d-8478-ee583b0f3429","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FTutu%20cover%20by%20Alma%20Zarza%20(lyrics)%20%23shorts%20%23tiktok%20%23music%20%23lyrics.mp4?alt=media&token=31268e33-98dc-47a4-9761-c696f56964ef","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FAya%20Nakamura%20-%20Copines%20(Lyrics)%20_%20_Trop%20tard%2C%20Trop%20tard_%20_%20WhatsApp%20Status%20%23copines%20%23ayanakamura.mp4?alt=media&token=4f573d42-109b-4d3d-9b95-08fbbcd15bb4",
+"https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2Fbezubaan%20kabse%20main%20raha..%20slowmo%20video%20status.mp4?alt=media&token=0811837f-4787-45ee-b1ba-34be59597e31","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FMai%20Phir%20Bhi%20Tumko%20Chahunga%20Song%20Status%20%E2%9D%A4%EF%B8%8F%20_%20Full%20Screen%20Whatsapp%20Status%20_%20Lo-fi%20_%20Arijit%20Singh%E2%9D%A3%EF%B8%8F.mp4?alt=media&token=d99e67cf-5fbe-4b3b-9c87-c6d89978c8af","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FJanam%20janam%20janam%20saath%20chalna%20yuhin%20song%20status%20_%20arijit%20singh%20song%20staus%20%23arijitsingh.mp4?alt=media&token=20b751f1-5589-49d7-8978-b02f861dfce6","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FChehra%20Kyun%20Milta%20Tera%F0%9F%92%95%F0%9F%A5%B0%20_%20Arijit%20Singh%20_%20Best%20Moment%20_.mp4?alt=media&token=1c51d428-9678-471f-8e04-5a1195ae0bc0","https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/videos1%2FAe%20Dil%20Hai%20Mushkil%20Song%20Status%20_%20Ye%20Rooh%20Bhi%20Mera%20%F0%9F%A5%BA%20_%20Arijit%20Singh%20Song%20%F0%9F%A5%B0%20_%20%23shorts.mp4?alt=media&token=0e89e85c-3010-4667-a82b-a8411490ccb6"
+
+
+];
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
+}
+
+
+function extractVideoUrl(input) {
+  const startIndex = input.indexOf("%2F") + 3; // Add 3 to exclude %2F
+  const endIndex = input.indexOf("?alt=");
+  const url = input.slice(startIndex, endIndex);
+  const escapedUrl = decodeURIComponent(url);
+  return escapedUrl;
+}
+
+
+/*
+
+function getRandomUrl(a) {
+  const randomNumber = Math.floor(Math.random() * 10) + 1;
+  
+  
+  if(randomNumber <4){
+      return  ("https://xsgames.co/randomusers/assets/avatars/"+getRandomGender()+"/"+getRandomNumber()+".jpg");
+  }else{
+  
+      if(randomNumber <7&& randomNumber >3){
+          return (
+      "https://source.unsplash.com/random/200x200/?boy,girl&rand="+Math.random()
+  );
+          
+      }else{
+      if(randomNumber >6&& randomNumber <9){
+          return ("https://picsum.photos/150/150?random="+Math.random())
+          }else{
+              return a;
+          }
+      }
+      
+  }
+  
+  }
+  
+    
+    function getRandomGender() {
+  const randomNumber = Math.floor(Math.random() * 10) + 1;
+  return randomNumber < 5 ? "male" : "female";
+}
+
+function getRandomNumber() {
+  return Math.floor(Math.random() * 71);
+}
+
+*/
+
+function getRandomInt(min, max) { min = Math.ceil(min); max = Math.floor(max); return Math.floor(Math.random() * (max - min + 1)) + min; }
+
+function f(num, digits) { const lookup = [ { value: 1, symbol: "" }, { value: 1e3, symbol: "k" }, { value: 1e6, symbol: "M" }, { value: 1e9, symbol: "G" }, { value: 1e12, symbol: "T" }, { value: 1e15, symbol: "P" }, { value: 1e18, symbol: "E" } ]; const rx = /\.0+$|(\.[0-9]*[1-9])0+$/; var item = lookup.slice().reverse().find(function(item) { return num >= item.value; }); return item ? (num / item.value).toFixed(digits).replace(rx, "$1") + item.symbol : "0"; }
+
+
+
+
+    
+    
+
+
+
+
+
+window.onload=function(){
+var comments_box=document.querySelectorAll(".comments_box");
+    for(i=0;i<comments_box.length;i++){
+    comments_box[i].addEventListener("click",function (){
+        toggleDialogVisibility(dialog)
+    }
+    )
+    }
+}
+
+
+function getAd() {
+  const randomNum = Math.floor(Math.random() * 5);
+  return {
+    ad: randomNum === 0,
+    watched: randomNum === 0 ? false : false
+  }
+}
+
+
+function updateProgress(video) {
+  const parent = video.parentElement.parentElement;
+  const progressBar = parent.querySelector(".Shorts_progressBar");
+  progressBar.style.width = (video.currentTime / video.duration) * 100 + '%';
+}
+
+
+      
+  </script>
+</head>
+
+<body>
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+  <div class="top_options main-container">
+  
+  <div class="left-div">
+       <i class="fas fa-arrow-left custom-icon-size shadow_new"></i>
+  </div>
+  <div class="center-div" id="l_m">
+    
+  </div>
+  <div class="right-div">
+       <i style="margin-right:4vw" class="fas fa-ellipsis-v custom-icon-size shadow_new"></i>
+
+  </div>
+
+     
+      
+  </div>
+  
+  
+  
+<div id="dialog"><div class="input_cmts_and_close zero"><h3 class="zero cmdt no-padding"><small><b class="black">Comments • 1.2K</b></small></h3><h3 onclick="toggleDialogVisibility(dialog)" class="cc-cross zero">×</h3></div><div class="dialog-content"><div id="comments"><div class="google-input"><input type="text" placeholder="Search"><button class="search-btn">Post</button></div>
+
+ <div style="color:rgb(50,0,230);background-color:rgb(50,0,230,.2);padding:4%;border-radius:10px;margin-bottom:1vh;margin-top:1vh">Remember to keep comments respectfull checkout <span style="color:rgb(0,0,200,.7);font-weight:800">Guidelines</span></div>
+
+
+     
+
+
+    
+    
+   
+
+
+    
+     <div style="min-height:10vh" class="sub-div-f">
+    <div class="sub-div">
+        <img class="user-profile" src="https://yt3.ggpht.com/ytc/AL5GRJVgx319XekeNPIt6vOMXG0lZ_ztcEId-SajIpdGJFSwJeb_WfRi2mQ63nKq4tny=s48-c-k-c0x00ffffff-no-rj">
+        <div class="userdata">
+        <div style="display:flex;flex-direction:row">
+            <div style="margin-right:0" class="user-name_x">Fur-qan</div>
+            
+       
+            </div>
+            <div class="posting-time_x">28 Mar 2022</div>
+            <div class="user-comment_x">Osm ❤️❤️</div>
+            
+            
+       <div class="comment_stastic">
+  <div class="likes_comments">
+    <img class="comment_svg" src="https://dl.dropboxusercontent.com/s/uav9azjcqw5uf3u/5dd3bbc1-a1cc-4691-a57a-0b33b0d3a5c8.png?dl=0">
+
+    <span class="like-count">33k</span>
+  </div>
+  <div class="replies_comments">
+  <img class="comment_svg" src="https://dl.dropboxusercontent.com/s/8cst7pyreqz9g01/reply-all-2-svgrepo-com.svg">
+    <span class="reply-count">12k</span>
+  </div>
+   <div class="replies_comments">
+    <span style="font-weight:500" class="reply-count"> Reply</span>
+  </div>
+  
+</div>
+
+    
+        </div>
+        
+        </div>
+        
+    
+        
+    </div>
+    
+    
+    
+   
+
+
+    
+<div id="coner" class="mik-container">
+<button onclick="NewData(this)" id="div2a" class="mik">Load More</button>
+
+
+
+<div class="mik marginAtTop2vh">Made in <b class="black">Kashmir </b> ©furqanelahie</div>
+
+
+
+</div>
+</div></div></div>
+ <div id="swiper_wrapper" class="swiper-wrapper">
+  <div class="swiper-slide">
+  
+
+ 
+  
+     <div class="video_inside">
+         
+         <video ontimeupdate="updateProgress(this)"  autoplay loop muted onclick="this.muted=false" src="https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/Sixth%20Part%20Of%20The%20Most%20Beautiful%20Places%20In%20USA%F0%9F%A4%A9%E2%9C%A8%23nature%20%23adventure%20%23shorts%20%23usa%20%20%23explore.mp4?alt=media&token=10f3bc9c-7b40-4409-a598-96426bfa26aa"></video>
+     </div>
+  
+       <div class="left_side_info">
+           <div class="picture">
+           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyF1UiImSYJNvHYhZjnyYXN2h9JpdAWrPmFA&usqp=CAU" class="profile_img shadows"/>
+           </div>
+           
+           <div class="data">
+           <div class="follow_plus_ifad">
+            <div class="follow same_color  shadows">follow</div>
+            
+            </div>
+            <div class="publisher_plus_verified"> 
+               <div class="publisher same_color shadows ellipse">Furqan Elahie</div>
+             <div class="verified"></div>
+               </div>
+                 <div class="title same_color shadows ellipse">Marry on a cross not just</div>
+                
+            </div>     
+           </div>
+       
+       <div class="right_side_info">
+           <div class="likes_box shadows">
+                <i class="white far fa-heart custom-icon-size shadow_new" onclick="liked(this)"></i> 
+                <div class="likes_text_count shadow_new">1.5M</div>
+           </div>
+            <div class="shadows comments_box">
+              <i class="far fa-comment-dots custom-icon-size shadow_new"></i>
+               <div class="comments_text_count shadow_new">13.4K</div>
+           </div>
+            <div class="shadows shares_box">
+             <i class="far fa-share-square custom-icon-size shadow_new"></i>
+
+ 
+
+
+           </div>
+            <div class="shadows report_box">
+        
+
+
+
+
+
+
+<i class="fas fa-ellipsis-v custom-icon-size opacity-less shadow_new"></i>
+
+
+
+
+
+           </div>
+           <!--
+            <div class="shadows share_box">
+               shar
+           </div>
+           -->
+       </div>
+
+ <div class="Shorts_progressBarContainer">
+      <div class="Shorts_progressBar" id="ii"></div>
+
+  </div>
+ 
+   </div>
+    
+    
+    <div class="swiper-slide">
+          
+     <div class="video_inside">
+         
+           <video poster="https://dl.dropboxusercontent.com/s/abq9mj83pfq45ri/download%20%283%29.png?dl=0"   loop onclick="this.play()" preload="none" src="https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/tera%20Mera%20Safar%20slowed%20%26%20reverb%20song%20lyrics%20lofi%23shortvideo.mp4?alt=media&token=97b34207-2d6d-4df7-8251-31c8a58a7c84"></video>
+     </div>
+  
+       <div class="left_side_info">
+           <div class="picture">
+           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyF1UiImSYJNvHYhZjnyYXN2h9JpdAWrPmFA&usqp=CAU" class="profile_img shadows"/>
+           </div>
+           
+           <div class="data">
+           <div class="follow_plus_ifad">
+            <div class="follow same_color  shadows">follow</div>
+            
+            
+            
+            </div>
+            <div class="publisher_plus_verified"> 
+               <div class="publisher same_color shadows ellipse">Furqan Elahie</div>
+             <div class="verified"></div>
+               </div>
+                 <div class="title same_color shadows ellipse">Tera mera safar </div>
+                
+            </div>     
+           </div>
+       
+       <div class="right_side_info">
+           <div class="likes_box shadows">
+                <i class="white far fa-heart custom-icon-size shadow_new" onclick="liked(this)"></i> 
+                <div class="likes_text_count shadow_new">2.5M</div>
+           </div>
+            <div class="shadows comments_box">
+              <i class="far fa-comment-dots custom-icon-size shadow_new"></i>
+               <div class="comments_text_count shadow_new">1.9K</div>
+           </div>
+            <div class="shadows shares_box">
+             <i class="far fa-share-square custom-icon-size shadow_new"></i>
+
+ 
+
+
+           </div>
+            <div class="shadows report_box">
+        
+
+
+
+
+
+
+<i class="fas fa-ellipsis-v custom-icon-size opacity-less shadow_new"></i>
+
+
+
+
+
+           </div>
+           <!--
+            <div class="shadows share_box">
+               shar
+           </div>
+           -->
+       </div>
+        
+   </div>
+   
+   
+   
+   
+   
+      <div class="swiper-slide">
+          
+         
+     <div class="video_inside">
+         
+         <video   loop onclick="this.play()" preload="none" src="https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/y2mate.com%20-%20Cute%20%20Funny%20Video%20Of%20Kashmiri%20Kid%20Aderzet%20shorts%20youtubeshorts%20kashmiri_480p.mp4?alt=media&token=d3d7ddb7-a594-41bd-b1c6-ec6255cb41fa"></video>
+     </div>
+  
+       <div class="left_side_info">
+           <div class="picture">
+           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyF1UiImSYJNvHYhZjnyYXN2h9JpdAWrPmFA&usqp=CAU" class="profile_img shadows"/>
+           </div>
+           
+            <div class="data">
+           <div class="follow_plus_ifad">
+            <div class="follow same_color  shadows">follow</div>
+          
+           
+            </div>
+            <div class="publisher_plus_verified"> 
+               <div class="publisher same_color shadows ellipse">Furqan Elahie</div>
+             <div class="verified"></div>
+               </div>
+                 <div class="title same_color shadows ellipse">Im a bad boy i wanna kill you today</div>
+                
+            </div>     
+           </div>
+       
+       <div class="right_side_info">
+           <div class="likes_box shadows">
+                <i class="white far fa-heart custom-icon-size shadow_new" onclick="liked(this)"></i> 
+                <div class="likes_text_count shadow_new">1.5M</div>
+           </div>
+            <div class="shadows comments_box">
+              <i class="far fa-comment-dots custom-icon-size shadow_new"></i>
+               <div class="comments_text_count shadow_new">1.4K</div>
+           </div>
+            <div class="shadows shares_box">
+             <i class="far fa-share-square custom-icon-size shadow_new"></i>
+
+ 
+
+
+           </div>
+            <div class="shadows report_box">
+        
+
+
+
+
+
+
+<i class="fas fa-ellipsis-v custom-icon-size opacity-less shadow_new"></i>
+
+
+
+
+
+           </div>
+           
+       </div>
+      </div>
+    
+    </div>
+<div class="autoplay-progress">
+      <svg viewBox="0 0 48 48">
+        <circle cx="24" cy="24" r="20"></circle>
+      </svg>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+  
+    var swiper = new Swiper(".mySwiper",
+    
+     {
+     threshold: 3,
+     speed: 200,
+      direction:"vertical",
+      
+     });
+     mySwiper=swiper;
+   
+     mySwiper.on( 'doubleTap', function() { 
+     
+     
+     var currentSlide = mySwiper.slides[mySwiper.activeIndex];
+     
+var currentLikebtn = currentSlide.querySelector('.likes_box i');
+
+
+if (currentLikebtn) {
+  liked(
+      currentLikebtn
+  )
+}
+
+     
+     
+     });
+     
+     
+     
+     mySwiper.on( 'slideChange', function() { 
+     /*
+const subDivs = document.querySelectorAll('.sub-div-f');
+subDivs.forEach((subDiv) => {
+  subDiv.remove();
+});
+NewData(document.querySelector("#div2a"));
+*/
+  var currentSlide = swiper.slides[swiper.activeIndex];
+  var video = currentSlide.querySelector('video');
+
+  if (currentSlide.getAttribute('data-ad') === 'true' && currentSlide.getAttribute('data-watched') === 'false') {
+    var remainingTime = 5;
+    var swipeInText = currentSlide.querySelector('.swipe_in_text');
+    var adSwipeIn = currentSlide.querySelector('.ad-swipe-in');
+    
+    if (video) {
+      if (video.readyState >= 2) {
+        startCountdown();
+      } else {
+        video.addEventListener('canplaythrough', startCountdown);
+      }
+    } else {
+      // video element not present, allow slide next
+      swiper.allowSlideNext = true;
+      swiper.wrapperEl.classList.remove('swiper-no-swiping');
+      return;
+    }
+    
+    function startCountdown() {
+      swipeInText.innerText = remainingTime + 's';
+      var timerInterval = setInterval(function() {
+        remainingTime--;
+        swipeInText.innerText = remainingTime + 's';
+        if (remainingTime <= 0) {
+          clearInterval(timerInterval);
+          currentSlide.setAttribute('data-watched', 'true');
+          swiper.allowSlideNext = true;
+          swiper.wrapperEl.classList.remove('swiper-no-swiping');
+          adSwipeIn.remove();
+          swipeInText.remove();
+        }
+      }, 1000);
+      
+      video.removeEventListener('canplaythrough', startCountdown);
+    }
+    
+    swiper.allowSlideNext = false;
+    swiper.wrapperEl.classList.add('swiper-no-swiping');
+  } else {
+    swiper.allowSlideNext = true;
+    swiper.wrapperEl.classList.remove('swiper-no-swiping');
+  }
+
+
+var currentSlide = mySwiper.slides[mySwiper.activeIndex];
+var currentVideo = currentSlide.querySelector('video');
+if(currentVideo){
+if (currentVideo) {
+  currentVideo.currentTime = 0;
+  currentVideo.play();
+}
+}
+var nextSlide = mySwiper.slides[mySwiper.activeIndex + 1];
+var nextVideo = nextSlide ? nextSlide.querySelector('video') : null;
+if (nextVideo) {
+  nextVideo.preload = 'auto';
+}
+
+var previousSlide = mySwiper.slides[mySwiper.previousIndex];
+var previousVideo = previousSlide ? previousSlide.querySelector('video') : null;
+if (previousVideo) {
+  previousVideo.pause();
+}
+
+
+
+
+ 
+     
+    
+ 
+     
+    
+    /* s(".swiper-wrapper").classList.add("swiper-no-swiping");
+     
+          s(".swiper-wrapper").classList.remove("swiper-no-swiping")
+     */
+     
+     
+     var secondToLastIndex = swiper.slides.length - 2;
+  if (swiper.activeIndex >= secondToLastIndex) {
+  l_m.innerHTML=`Loading More...   <div class="content_loader"></div>`;
+  
+    console.log("Asking server for new data");
+     
+     var comments_data_var=[]
+
+fetch('https://random-data-api.com/api/users/random_user?size=5')
+  .then(response => response.json())
+  .then(users => {
+  
+    // Map the user data to the desired format
+     comments_data_var = users.map((user, i) => {
+      // Select a random comment text and time
+      
+      const src = 
+    getRandomElement();
+      const text =
+extractVideoUrl(
+    src);
+      
+      // Generate random likes and replies counts
+      const repliesCount = Math.floor(Math.random() * 50);
+      const likesCount = Math.floor(Math.random() * 50) + 50;
+      // Transform the user data into the desired format
+      return {
+        name: `${user.first_name} ${user.last_name}`,
+        profile_avatar: getRandomUrl(user.avatar) ,
+        src,
+        text,
+        likes: `${likesCount}k`,
+        comments: `${repliesCount}k`
+      };
+    });
+
+    // Sort the comments_data_var array by likes count in descending order
+    
+
+    // Do something with the resulting data (e.g. log it)
+    
+    
+    // Get a reference to the div2 element
+var to_be_added=[];
+
+    for (i = 0; i < comments_data_var.length; i++) {
+    
+    
+    
+    var fragment =  document.createDocumentFragment();
+    var  x=getAd();
+    
+   var element1 = new Element({
+  parent: fragment,
+  element: 'div',
+  attributes: {
+    'class': 'swiper-slide',
+    'data-ad':x.ad,
+    'data-watched':x.watched
+  }
+
+}).create();
+
+var element2 = new Element({
+  parent: element1,
+  element: 'div',
+  attributes: {
+    'class': 'video_inside'
+  }
+
+}).create();
+
+var element3 = new Element({
+  parent: element2,
+  element: 'video',
+  attributes: {
+    'loop': '',
+    'onclick': 'this.play()',
+    'src': comments_data_var[i]["src"],
+    'preload':'none',
+    'ontimeupdate':'updateProgress(this)'
+  }
+
+}).create();
+
+var element4 = new Element({
+  parent: element1,
+  element: 'div',
+  attributes: {
+    'class': 'left_side_info'
+  }
+
+}).create();
+
+var element5 = new Element({
+  parent: element4,
+  element: 'div',
+  attributes: {
+    'class': 'picture'
+  }
+
+}).create();
+
+var element6 = new Element({
+  parent: element5,
+  element: 'img',
+  attributes: {
+    'class': 'profile_img',
+    'src': comments_data_var[i]["profile_avatar"]
+  }
+
+}).create();
+
+var element7 = new Element({
+  parent: element4,
+  element: 'div',
+  attributes: {
+    'class': 'data'
+  }
+
+}).create();
+
+var element8 = new Element({
+  parent: element7,
+  element: 'div',
+  attributes: {
+    'class': 'follow_plus_ifad'
+  }
+
+}).create();
+
+var element9 = new Element({
+  parent: element8,
+  element: 'div',
+  attributes: {
+    'class': 'follow same_color  shadows'
+  }
+,
+  text: 'follow'
+}).create();
+if(x.ad){
+var element10 = new Element({
+  parent: element8,
+  element: 'div',
+  attributes: {
+    'class': 'ad'
+  }
+,
+  text: 'ad'
+}).create();
+var element11 = new Element({
+  parent: element8,
+  element: 'div',
+  attributes: {
+    'class': 'ad-swipe-in ellipse'
+  }
+,
+  text: 'Swipe in'
+}).create();
+
+var element12 = new Element({
+  parent: element8,
+  element: 'span',
+  attributes: {
+    'class': 'swipe_in_text'
+  }
+,
+  text: '5s'
+}).create();
+}
+var element13 = new Element({
+  parent: element7,
+  element: 'div',
+  attributes: {
+    'class': 'publisher_plus_verified'
+  }
+
+}).create();
+
+var element14 = new Element({
+  parent: element13,
+  element: 'div',
+  attributes: {
+    'class': 'publisher same_color shadows ellipse'
+  }
+,
+  text: randomName ()
+}).create();
+
+var element15 = new Element({
+  parent: element13,
+  element: 'div',
+  attributes: {
+    'class': 'verified'
+  }
+
+}).create();
+
+var element16 = new Element({
+  parent: element7,
+  element: 'div',
+  attributes: {
+    'class': 'title same_color shadows ellipse'
+  }
+,
+  text: comments_data_var[i]["text"]
+}).create();
+
+var element17 = new Element({
+  parent: element1,
+  element: 'div',
+  attributes: {
+    'class': 'right_side_info'
+  }
+
+}).create();
+
+var element18 = new Element({
+  parent: element17,
+  element: 'div',
+  attributes: {
+    'class': 'likes_box shadows'
+  }
+
+}).create();
+
+var element19 = new Element({
+  parent: element18,
+  element: 'i',
+  attributes: {
+    'class': 'white far fa-heart custom-icon-size shadow_new',
+    'onclick': 'liked(this)'
+  }
+
+}).create();
+
+var element20 = new Element({
+  parent: element18,
+  element: 'div',
+  attributes: {
+    'class': 'likes_text_count shadow_new'
+  }
+,
+  text: comments_data_var[i]["likes"]
+}).create();
+
+var element21 = new Element({
+  parent: element17,
+  element: 'div',
+  attributes: {
+    'class': 'shadows comments_box',
+    'onclick': 'toggleDialogVisibility(dialog)'
+  }
+
+}).create();
+
+var element22 = new Element({
+  parent: element21,
+  element: 'i',
+  attributes: {
+    'class': 'far fa-comment-dots custom-icon-size shadow_new'
+  }
+
+}).create();
+
+var element23 = new Element({
+  parent: element21,
+  element: 'div',
+  attributes: {
+    'class': 'comments_text_count shadow_new'
+  }
+,
+  text: comments_data_var[i]["comments"]
+}).create();
+
+var element24 = new Element({
+  parent: element17,
+  element: 'div',
+  attributes: {
+    'class': 'shadows shares_box'
+  }
+
+}).create();
+
+var element25 = new Element({
+  parent: element24,
+  element: 'i',
+  attributes: {
+    'class': 'far fa-share-square custom-icon-size shadow_new'
+  }
+
+}).create();
+
+var element26 = new Element({
+  parent: element17,
+  element: 'div',
+  attributes: {
+    'class': 'shadows report_box'
+  }
+
+}).create();
+
+var element27 = new Element({
+  parent: element26,
+  element: 'i',
+  attributes: {
+    'class': 'fas fa-ellipsis-v custom-icon-size opacity-less shadow_new'
+  }
+
+}).create();
+
+var element28 = new Element({
+  parent: element1,
+  element: 'div',
+  attributes: {
+    'class': 'Shorts_progressBarContainer'
+  }
+
+}).create();
+  var element29 = new Element({
+  parent: element28,
+  element: 'div',
+  attributes: {
+    'class': 'Shorts_progressBar'
+  }
+
+}).create();
+  
+ to_be_added.push(element1.outerHTML);
+ 
+
+    }
+swiper.appendSlide(to_be_added);
+to_be_added=Array();
+l_m.innerHTML=``;
+
+    /*
+swiper_wrapper.append(fragment);
+    mySwiper.update();
+    fragment.textContent = null;
+    */
+    var currentSlide = mySwiper.slides[mySwiper.activeIndex];
+var currentVideo = currentSlide.querySelector('video');
+var videos = document.getElementsByTagName('video');
+
+for (var i = 0, len = videos.length; i < len; i++) {
+  if (videos[i] !== currentVideo) {
+    videos[i].pause();
+  }
+}
+if(currentVideo){
+currentVideo.currentTime = 0;
+currentVideo.play();
+
+}
+  }).catch(error => console.error(error));
+  
+  
+
+    
+
+
+
+
+
+
+     
+     
+     
+     }
+     var previousSlides = Array.from(document.querySelectorAll('.swiper-slide:not(.swiper-slide-duplicate)')).slice(0, mySwiper.previousIndex);
+    if (previousSlides.length > 4) {
+        var numToRemove = previousSlides.length - 4;
+        for (var i = 0; i < numToRemove; i++) {
+        
+if (!previousSlides[i].classList.contains('removed_slide')) {
+ 
+      previousSlides[i].innerHTML=`<span style="color:white;font-weight:400;">Removed for smooth experience<br><small>You can find it in history</small></span>`;
+ previousSlides[i].classList.add("removed_slide"); 
+ 
+ }         
+        }
+        
+    }
+    
+     })
+     
+     
+    
+     
+     
+  </script>
+</body>
+
+</html>
