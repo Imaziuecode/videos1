@@ -12,7 +12,9 @@ self.addEventListener('install', function(event) {
 
       
         '/512.png',
-        '/192.png'
+        '/192.png',
+'https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/5b888d2f-1a8b-4fd9-878e-e0ca1df3b71e.png?alt=media&token=a88b0576-0750-45e4-a39b-88f96ab7b041',
+'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js'
 
 
        
