@@ -12,9 +12,7 @@ self.addEventListener('install', function(event) {
 
       
         '/512.png',
-        '/192.png',
-'/5b888d2f-1a8b-4fd9-878e-e0ca1df3b71e%20(1).png',
-'/swiper-bundle.min.js'
+        '/192.png'
 
 
        
