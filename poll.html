@@ -1,0 +1,3409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Login Page</title>
+    <style>
+        /* Add your CSS styles here */
+
+body {
+    font-family: Arial, sans-serif;
+    
+    margin: 0;
+   background:#eee;
+    height: 100vh;
+}
+.login_signup{
+    height:100vh;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+    overflow:scroll ;
+}
+.login_signup:before {
+  content: "";
+  position: absolute;
+  background: rgba(62, 130.352, 243, 1);
+  
+  width: 100%;
+  top: 0;
+  right: 10%;
+  left: 0;
+  bottom: 0;
+  border-radius: 5px;
+  z-index: -1;
+  clip-path: polygon(
+    2% 0,
+    100% 0,
+    100% 35%,
+    100% 70%,
+    100% 100%,
+    70% 94%,
+    57% 73%,
+    35% 59%,
+    29% 36%,
+    7% 20%
+  );
+  opacity: 0.9;
+}
+
+.login_signup:after {
+  content: "";
+  position: absolute;
+/*
+  background-image: url(https://firebasestorage.googleapis.com/v0/b/myimaziue.appspot.com/o/5b888d2f-1a8b-4fd9-878e-e0ca1df3b71e.png?alt=media&token=a88b0576-0750-45e4-a39b-88f96ab7b041);
+  background-repeat: repeat;
+  background-size: cover;
+  
+  */
+  width: 100%;
+  top: 0;
+  right: 10%;
+  left: 0;
+  bottom: 0;
+  border-radius: 5px;
+  z-index: -1;
+  clip-path: polygon(
+    2% 0,
+    100% 0,
+    100% 35%,
+    100% 70%,
+    100% 100%,
+    70% 94%,
+    57% 73%,
+    35% 59%,
+    29% 36%,
+    7% 20%
+  );
+  opacity: 0.6;
+}
+
+
+
+
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+.at_top_login{
+    align-items:center;
+    margin-bottom:4vh;
+}
+.at_top_login span{
+    color:white;
+    font-size:25px;
+    letter-spacing:1px;
+    font-weight:700;
+    
+}
+.container {
+    background-color:rgb(255,255,255) ;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width:80%;
+    
+    
+}
+label[for="username"]{
+    font-size:15px;
+}
+.login-form {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+h1 {
+    
+    color:rgb(0,0,0,.5);
+    font-size:21px;
+    color: rgba(62, 130.352, 243, 1);
+}
+
+.txt_and_about{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:cente;
+}
+.r_g{
+    color: rgba(62, 130.352, 243, 1);
+}
+.input-field {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    
+}
+
+input[type="text"] {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    
+    font-size: 16px;
+    border:none;
+    background-color:transparent ;
+    outline:none;
+}
+ input:focus{
+    
+    outline:none;
+}
+.continue {
+    
+    
+    border: none;
+    border-radius: 4px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius:10px;
+    padding:5px 20px;
+    border:2px solid #fff;
+    width:30px;
+    display:flex;
+    height:20px;
+    align-items:center;
+    text-align:center;
+    justify-content:center;
+    
+}
+.continue_btn_f{
+    float:right;
+    background-color:rgba(62, 130.352, 243, 1);
+    color: #fff;
+}
+.continue_btn_fb,.continue_btn_backtousername,.continue_btn_backtopass,.continue_btn_backtoname{
+    display:none;
+    float:left;
+    color:rgba(62, 130.352, 243, 1);
+    
+}
+
+.continue_btn_signup_partial,.continue_btn_signup_full,.continue_btn_login{
+    display:none;
+    float:right;
+    background-color:rgba(62, 130.352, 243, 1);
+    color: #fff;
+}
+
+.continue_btn_fb{
+    display:none;
+    float:left;
+    color:rgba(62, 130.352, 243, 1);
+    
+}
+.ic_in{
+    display:flex;
+    flex-direction:row;
+    border-bottom:1px solid #ccc;
+    align-items:center;
+    flex-direction:row;
+    align-items:center;
+    text-align:center;
+    justify-content:center;
+    
+}
+.ic_in.border{
+    border-bottom:2px solid rgba(62, 130.352, 243, 1);
+    
+}
+.
+.continue--btnb:hover {
+    background-color: #0056b3;
+}
+.fa-user.cl{
+    color:rgba(62, 130.352, 243, 1);
+}
+
+.ic_in_password{
+    display:none;
+    
+}
+
+.ic_in_name{
+    display:none;
+    
+}
+
+
+.loader {
+ 
+  border: 3px solid #fff;
+  border-radius: 50%;
+  border-top: 3px solid  rgba(62, 130.352, 243, 1);
+  width: 17px;
+  height: 17px;
+  -webkit-animation: spin 2s linear
+  infinite;
+  animation: spin 1.5s linear infinite;
+}
+
+@-webkit-keyframes spin {
+0% {-webkit-transform: rotate(0deg);}
+  100% { -webkit-transform:
+  rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.login_error{
+     background-color:rgb(255,0,0,.4);
+    margin:0;
+    padding:10px;
+    border-radius:10px;
+    color:white;
+    font-weight:500;
+    display:none;
+}
+
+.login_info{
+    border:1px solid rgba(62, 130.352, 243, .8); 
+    background-color:rgba(62, 130.352, 243, .1);
+    color:rgba(62, 130.352, 243, .9);
+    margin:0;
+    padding:5px;
+    border-radius:5px;
+    font-weight:500;
+    font-size:13px;
+    
+}
+.input_bg_on_enter{
+   background-color:rgba(62, 130.352, 243, .1);
+}
+
+.register_span{
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+.splash{
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+.hide {
+    opacity: 0;
+}
+
+.this_from{
+    background-color:white;
+    width:90%;
+    padding:5px;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    border-radius:5px;
+    margin-top:.8vh;
+    
+}
+.this_from b{
+    font-weight:600;
+    
+}
+.this_from span{
+    font-weight:300;
+    letter-spacing:1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Error Dialog */
+
+.error-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color:white;
+  /* Coral red background */
+    padding: 20px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 70%;
+    
+    
+}
+.error_title_cont{
+    max-height:30vh;
+}
+.error-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    word-break: break-all;
+    overflow:scroll;
+    
+}
+
+.error-message {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    color: #555;
+    word-break: break-all;
+    overflow:scroll;
+    
+}
+
+.erroroverlaybtn {
+    font-size: 1rem;
+    cursor: pointer;
+    color: #333;
+    background-color: transparent;
+    border: none;
+    float:right;
+    border:1px solid #ddd;
+    border-radius:5px;
+    
+}
+
+.error-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+}
+
+
+/* Error dialog end */
+
+
+
+
+
+/* confirm */
+
+.x_d_popup_modal_modern.fade-in_xd {
+  animation: fadeIn_xd 0.3s ease-in-out;
+}
+
+
+.x_d_popup_modal_modern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.x_d_modal-content {
+  max-width: 75%;
+  padding: 20px;
+  text-align: left;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  overflow: scroll;
+  transition:display 0.5 ease;
+}
+
+.x_d_modal-heading {
+  margin-top: 0;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  margin-bottom: 10px;
+}
+
+.x_d_modal-content button {
+  margin-top: 5px;
+  margin-left: auto;
+  padding: 2px 2px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  
+}
+
+.x_d_modal-content p {
+  margin: 0;
+  font-size:15px;
+  padding:5px;
+  
+ 
+}
+
+.x_d_modal-content {
+  border-radius: var(--border-radius, 10px);
+}
+.x_d_modal-content button {
+  background-color:  #3498db;
+  color: var(--button-text-color, #fff);
+  letter-spacing:1px;
+  font-weight:800;
+}
+.x_d_modal-content {
+  color: var(--text-color, #333);
+}
+
+
+.margin_left{
+    margin-left:10px;
+}
+
+.x_d_modal-content button:nth-child(1) {
+  background-color: white; 
+  color: #3498db; 
+  margin-left: 20px; 
+  border:1px solid #3498db;
+  padding:4px;
+  width:70px;
+}
+
+
+.x_d_modal-content button:nth-child(2) {
+  background-color: white; 
+  color: #ff5733 ;
+  margin-right: 10px; 
+   border:0px solid #ff5733;
+  padding:4px;
+  width:70px;
+}
+
+
+
+
+
+/*login signup end */ 
+
+
+
+
+
+
+/* polls home css */ 
+
+
+
+/* Import Font Awesome */
+@import url('https://kit.fontawesome.com/c9705384ae.js');
+
+/* Apply basic styles */
+
+.polls_home_u{
+    display:none;
+}
+
+/* Style for the sticky header */
+.sticky-header {
+    position: sticky;
+    top: 0;
+    background-color: rgba(62, 130, 243, 1); /* Background color */
+    color: #fff; /* Text color */
+    display: flex;
+    align-items: center;
+    
+    padding: 10px 20px;
+    
+    z-index: 22; /* Ensure the header is above the header extension */
+}
+
+/* Style for the menu icon and user profile icon */
+.menu-icon, .user-profile-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+.my_name{
+    font-size:16px;
+    font-weight:500;
+    margin-left:3px;
+}
+
+
+.user-profile-icon{
+    margin-left:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+/* Style for the "Polls" text */
+.polls-text {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left:10px;
+}
+
+/* Style for the header extension */
+.header-extension {
+    background-color: rgba(62, 130, 243, 1); /* Background color */
+    height: 5vh; /* Adjust the height as needed */
+    z-index: 1; /* Place below the header */
+}
+.search_div_op { 
+justify-content: center;
+ align-items: center;
+ width: 100%; 
+text-align: center; 
+position: relative;
+ top: -4.9vh;
+ z-index: 3;
+  }
+.search_div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width:100%;
+    
+    
+}
+
+#search-btn {
+    background-color: rgba(62, 130, 243, 0.9); 
+    color: white;
+    font: "trebuchet ms", trebuchet;
+    
+    border-radius: 0 5px 5px 0;
+    -moz-border-radius: 0 5px 5px 0;
+    -webkit-border-radius: 0 5px 5px 0;
+    -o-border-radius: 0 5px 5px 0;
+    border: 0 none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#searchInput {
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+    -moz-border-radius: 5px 0 0 5px;
+    -webkit-border-radius: 5px 0 0 5px;
+    -o-border-radius: 5px 0 0 5px;
+    border: 0 none;
+    width: 70%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    outline: none;
+    border-bottom:1px solid #ddd;
+    
+}
+
+#searchInput:focus {
+    outline: none;
+}
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: 70%;
+    background-color: white;
+    margin-bottom: 20px;
+    top: -4.9vh;
+    
+}
+#selectedOption {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+}
+.custom-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 100%;
+    -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    margin-top: 1vh;
+    left: -0.5vw;
+    z-index:20;
+}
+
+.custom-select-icon{
+    margin-left:5px;
+}
+.custom-dropdown.active .custom-dropdown-content {
+    display: block;
+}
+
+.custom-dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+}
+
+.custom-dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.custom-dropdown-item:hover {
+    background-color: #ddd;
+}
+
+.centered-dropdown-container {
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+  
+}
+
+
+
+
+#pollContainer{
+  width:100vw;
+  margin-top:-4vh;
+}
+.wrapper{
+    width:80%;
+    height:auto;
+    background:#fff;
+    margin:0 auto;
+    padding:20px;
+    border-radius:10px;
+    margin-bottom:20px;
+    overflow: hidden;
+}
+#ques,.ques{
+    font-size:16px;
+    padding:8px 0;
+    font-weight:500;
+    
+}
+.options{
+    display:block;
+    width:100%;
+    background:transparent;
+    border:2px #888 solid;
+    border-radius:8px;
+    padding:11px;
+    margin:10px 0;
+    color:;
+    font-size:15px;
+    text-align:left;
+    position:relative;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    transition:border-color .2s;
+    overflow:hidden;
+}
+.ootions>span{
+    width:100%;
+    position:relative;
+    z-index:5;
+}
+.filler{
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:1;
+    width:0%;
+    height:100%;
+    background:rgba(0,0,0,.2);
+    transition:width .2s;
+    visibility:hidden;
+}
+.num_v{
+    font-weight:500;
+    visibility:hidden;
+}
+.clicked{
+    border-color:#4a4;
+    border-color:rgb(0,40,200,.7);
+}
+.clicked>.filler{
+    background:#4a45;
+    background:rgb(0,40,200,.2);
+}
+.poll_bottom{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.poll_bottom_b{
+  width:auto;
+  max-width:60%;
+  overflow: scroll;
+  }
+.poll_bt_time{
+  letter-spacing: .4px;
+  font-style: italic;
+  font-size: 8px;
+}
+.poll_bt_owner{
+  font-weight: 400;
+  font-size:13px;
+  width:auto;
+}
+
+.poll_bt_votes{
+  font-size: 10px;
+  color:rgb(0,40,200,.8);
+  /*background:rgb(0,40,200,.1);*/
+  border:1px solid rgb(0,40,200,.5);
+  font-weight:500;
+  width:auto;
+  display:flex;
+  flex-direction:row;
+  border-radius: 10px;
+  padding-left:8px;
+  padding-right:8px;
+  padding-top: .4px;
+  padding-bottom: .4px;
+  display:inline;
+  overflow: scroll;
+  
+}
+.poll_bt_verified{
+  font-size: 10px;
+  color:rgb(0,200,40,.5);
+ /* background:rgb(0,200,40,.1);*/
+  width:auto;
+  display:flex;
+  flex-direction:row;
+  border-radius: 10px;
+  padding-left:8px;
+  padding-right:8px;
+  padding-top: .4px;
+  padding-bottom: .4px;
+  border:1px solid rgb(0,200,40,.5);
+  margin-left: 5px;
+  display: inline;
+  overflow: scroll;
+}
+.owners_area{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+.owners_area_cont{
+  right:0;
+  width:auto;
+   }
+.owners_area{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+  border-radius: 10px;
+  padding:0 2px 0 0px;
+  width:auto;
+  
+}
+.owners_circle{
+  background:#dddddd30;
+  border:1px solid #ddd;
+  border-radius: 50%;
+  padding: 1px;
+  margin-right: 3px;
+  font-size: 13px;
+  width:25px;
+  height:25px;
+  align-items: center;
+  display:flex;
+  justify-content: center;
+  text-align: center;
+  font-weight: 500;
+  background:rgb(0,40,200,.1);
+  
+  }
+.bt_extra{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width:auto;
+  
+}
+.poll_bt_tag{
+  color:rgb(0,40,200,.8);
+  background:rgb(0,40,200,.06);
+  display: inline;
+  margin-right:3px;
+  font-size:14px;
+  
+  }
+.all_tags{
+  width:76%;
+  margin-bottom: 3px;
+  overflow-x:scroll;
+}
+
+.at_top{
+    display:flex;
+    flex-direction:row;
+}
+.at_top_has_title{
+    width:90%;
+}
+.at_top_has_options{
+    width:10%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:rgb(0,0,0,.7);
+}
+
+.poll_bt_time{
+    
+}
+.fa-times{
+    
+}
+
+
+
+
+/* VOTERS DIALOG */
+
+/* Styling for the bottom sheet dialog */
+.bottom_dialog_sheet {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+    height:70vh;
+    z-index:88765;
+}
+
+.bottom_dialog_sheet.open {
+    transform: translateY(0);
+}
+
+.bottom_dialog_sheet-header {
+    display: flex;
+    justify-content: space-between; /* To align text and close button in the same row */
+    padding: 10px;
+}
+
+.bottom_dialog_sheet-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.bottom_dialog_sheet-close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.bottom_dialog_sheet-content {
+    padding-left:15px;
+    padding-right:15px;
+    overflow:scroll;
+    height:60vh;
+    
+}
+
+.bottom_dialog_sheet-voter {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding:10px;
+    border-bottom:.5px solid rgb(0,0,0,.3);
+}
+
+.bottom_dialog_sheet-avatar {
+    width: 30px;
+    height: 30px;
+    background-color: #007bff; /* You can change this color */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.bottom_dialog_sheet-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.bottom_dialog_sheet-name {
+    font-weight: bold;
+}
+
+.bottom_dialog_sheet-polls {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+
+
+/* CREATE POLL*/
+  .tags_crt {
+            display: flex;
+            flex-direction:row;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .tags_crt input {
+            flex-grow: 1;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            margin-right: 10px;
+            width:70%;
+        }
+        .tags_crt:focus-within{
+            border:1.5px solid #007bff;
+        }
+        .tags_crt button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .tag_crt {
+            display: inline-block;
+            background-color: #eee;
+            color: #333;
+            padding: 5px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        .tag_crt button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 5px;
+            margin-left: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+.enter_poll_text_div{
+    margin-top:5%;
+}
+.enter_poll_text_div,.enter_tags_div{
+    font-size:15px;
+    color:rgb(0,0,0,.7);
+    margin-left:10px;
+    margin-bottom:10px;
+    color:rgb(0,0,0,.7);
+    font-weight:500;
+    letter-spacing:1px;
+    
+}
+.init_options_b{
+    display:flex;
+    flex-direction:row;
+    margin-right:10px;
+    margin-bottom:10px;
+    margin-left:10px;
+    justify-content:center;
+    align-items:center;
+    
+}
+.init_options_b i{
+    margin-left:auto;
+    color:rgb(0,0,0,.7);
+    font-size:15px;
+    letter-spacing:1px;
+}
+.options_text_div{
+    font-size:15px;
+    color:rgb(0,0,0,.7);
+    font-weight:500;
+    letter-spacing:1px;
+    
+    
+}
+.tags_text_div{
+    font-size:15px;
+    color:rgb(0,0,0,.7);
+    font-weight:500;
+    letter-spacing:1px;
+    margin-bottom:8px;
+    margin-left:5px;
+    
+}
+
+.mx_line{
+    margin-bottom:20px;
+    position:relative;
+    
+}
+
+
+
+/* loading more loader*/
+
+
+.ld_mr_div{
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    justify-content:center ;
+    align-items:center;
+    text-align:center;
+    display:none;
+    
+}
+
+.loader_ld_more {
+  margin-left:45%;
+  border: 5px solid rgb(0,0,0,.02);
+  border-radius: 50%;
+  border-top: 5px solid  rgba(62, 130.352, 243, 1);
+  width: 30px;
+  height: 30px;
+  -webkit-animation: spin 2s linear
+  infinite;
+  animation: spin 1.5s linear infinite;
+}
+@-webkit-keyframes spin {
+0% {-webkit-transform: rotate(0deg);}
+  100% { -webkit-transform:
+  rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+    </style>
+    
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/hmac-sha256.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/enc-base64-min.js"></script> 
+  <script src="https://kit.fontawesome.com/c9705384ae.js" crossorigin="anonymous"></script>
+  
+  <script>
+      
+let API_URL = "https://furqansxserver.onrender.com";
+fetch("https://polls-furqan.probecrew.in" + "/breath")
+  .then(response => {
+    if (response.status === 200) {
+API_URL = "https://polls-furqan.probecrew.in";
+    } else {
+      API_URL = "https://furqansxserver.onrender.com";
+    }
+    
+  })
+  .catch(error => {
+    
+  });
+
+function em(a){
+    return document.querySelector(a);
+}
+function hideAllacBtns(...except){
+    document.querySelectorAll(".ac_btn").forEach(el=>{
+        
+        el.style.display="none";
+    })
+    
+    except.forEach(ex=>{ex.style.display ="block";})
+    
+    
+}
+
+function show_a_v(){
+    getConfirm(
+  "About Verification",
+  "Verification tag is given to polls which are having well related options and acceptable question, the poll should not be spam or junk then it will be verified after a manual checkup. ",
+ null,
+  "ok",
+  () => {
+  
+
+
+  },
+  () => {
+   
+  }
+);
+    
+}
+function generateJWT(secretKey) {
+    var header = {
+        "alg": "HS256",
+        "typ": "JWT"
+    };
+
+    var data = {
+        "exp": Math.floor(Date.now() / 1000) + 30
+    };
+
+    function base64url(source) {
+        // Encode in classical base64
+        var encodedSource = CryptoJS.enc.Base64.stringify(source);
+
+        // Remove padding equal characters
+        encodedSource = encodedSource.replace(/=+$/, '');
+
+        // Replace characters according to base64url specifications
+        encodedSource = encodedSource.replace(/\+/g, '-');
+        encodedSource = encodedSource.replace(/\//g, '_');
+
+        return encodedSource;
+    }
+
+    var stringifiedHeader = CryptoJS.enc.Utf8.parse(JSON.stringify(header));
+    var encodedHeader = base64url(stringifiedHeader);
+
+    var stringifiedData = CryptoJS.enc.Utf8.parse(JSON.stringify(data));
+    var encodedData = base64url(stringifiedData);
+
+    var signature = encodedHeader + "." + encodedData;
+    signature = CryptoJS.HmacSHA256(signature, secretKey);
+    signature = base64url(signature);
+
+    return encodedHeader + "." + encodedData + "." + signature;
+}
+
+
+
+
+function hideAllacInputs(...except){
+ document.querySelectorAll(".ic_in").forEach(el=>{
+        
+        el.style.display="none";
+    })
+    
+    except.forEach(ex=>{ex.style.display ="flex";})
+    
+    
+}
+function getVoters(pollId,accessToken ) {
+  const url = API_URL+'/voters/v2'; // Replace with the actual URL for your endpoint
+  const token = 'Bearer '+accessToken; // Replace with your authentication token
+
+  return fetch(url, {
+    method: 'POST',
+    headers: {
+      'Authorization': token,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ poll_id: pollId })
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+  alert(
+    
+    JSON.stringify (
+        data
+        
+    )
+)
+  
+  
+    return data;
+    
+    
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    return { status: false, error: 'An error occurred while fetching voters.' };
+  });
+}
+
+
+
+function deletePoll(pollId, accessToken) {
+  const url = API_URL+'/delete'; // Replace with your API endpoint URL
+
+  return new Promise((resolve, reject) => {
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ poll_id: pollId }),
+    })
+    .then((response) => {
+      
+      return response.json();
+    })
+    .then((data) => {
+      if (data.status) {
+        resolve(data);
+      } else {
+        reject(new Error(data.error));
+      }
+    })
+    .catch((error) => {
+      reject(error);
+    });
+  });
+}
+
+
+
+
+
+var page_num=0;
+var filter_num="most_voted";
+function processData(polls,paginate=false){
+if(!paginate){
+pollContainer.innerHTML ="";
+em(".ld_mr_div").style.display="none";
+}
+
+    polls.forEach((pollData,index) => {
+            var has_voted_poll=false;
+            const pollDiv = document.createElement('div');
+            pollDiv.classList.add('wrapper');
+            
+            if(index===(polls.length-2)){
+            console.log(" h")
+page_num++;                
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+     em(".ld_mr_div").style.display="block"; getPolls(accessToken,filter_num,page_num,true);
+      // Do something when the element becomes visible
+      observer.unobserve(entry.target); // Stop observing once the element is visible
+    }
+  });
+});
+
+observer.observe(pollDiv);
+            }
+            const pollId = pollData[0];
+            pids.push(pollData [0])
+            const pollUserId = pollData[1];
+            const pollOwnerName = pollData[2];
+            const pollTitle = pollData[3];
+
+            const pollOptions = pollData[4];
+            const time=pollData[5];
+            
+            
+            const tags=pollData[6];
+            
+            const verified =pollData[7];
+            pollOptions.forEach(option => {
+               if(option[3]){
+               has_voted_poll=true;
+               }
+            });
+            
+            let totalVotes = pollOptions.reduce((total, option) => total + option[2], 0);
+const at_top=document.createElement('div');
+at_top.classList.add("at_top");
+
+const at_top_has_title=document.createElement('div');
+at_top_has_title.classList.add("at_top_has_title");
+
+const at_top_has_options=document.createElement('div');
+at_top_has_options.classList.add("at_top_has_options");
+const options_poll=document.createElement('i');
+options_poll.classList.add("fas");
+if(ID==pollUserId){
+
+options_poll.classList.add("fa-trash-alt");
+options_poll.onclick=function(){
+    getConfirm(
+  "Confirm Delete",
+  `Do you want to delete the poll  <b>"${pollTitle} "</b>, this action can't be undone once done`,
+ "Delete",
+  "Cancel",
+  () => {
+  
+deletePoll(pollId, accessToken)
+  .then(() => {
+    // Poll deleted successfully
+    getConfirm(
+  "Success",
+  "Poll was deleted successfully",
+ null,
+  "ok",
+  () => {
+  
+
+
+  },
+  () => {
+   
+  }
+); (pollDiv.parentNode).removeChild(pollDiv);
+    
+    
+  })
+  .catch((error) => {
+    // Handle the error here
+    console.log('Error deleting poll:', error.message);
+  });
+
+
+  },
+  () => {
+   
+  }
+);
+}
+
+}else {
+    options_poll.classList.add("fa-flag");
+options_poll.onclick=function(){
+    
+    getConfirm(
+  "Do you want to report?",
+  `Make sure this poll goes against our terms and conditions?`,
+ "Yes",
+  "No",
+  () => {
+  openModal(pollId)
+
+
+  },
+  () => {
+   
+  }
+);
+
+
+    
+}
+}
+
+at_top_has_options.appendChild(options_poll );
+
+const pollTitleElement = document.createElement('p');
+            pollTitleElement.classList.add("ques");          
+            pollTitleElement.textContent = pollTitle;
+            
+            
+            
+
+            
+            at_top_has_title.appendChild(pollTitleElement); 
+            
+at_top.appendChild (at_top_has_title);
+at_top.appendChild (at_top_has_options);
+          pollDiv.appendChild(at_top );
+            const opt_push=[];
+            pollOptions.forEach(option => {
+              const optionId = option[0];
+              const optionText = option[1];
+              const numberOfVotes = option[2];
+              const hasVoted = option[3];
+
+              const optionDiv = document.createElement('button');
+              optionDiv.setAttribute("data-poll-option-id",optionId);
+              optionDiv.setAttribute("data-assoc-poll-id",pollId);
+              
+              optionDiv.classList.add('options');
+
+  if(hasVoted === 1) {
+optionDiv.classList.add('clicked');
+
+    
+    }  
+
+
+
+
+              const optionb = document.createElement('b');
+              optionb.classList.add('filler');
+           
+           optionDiv.appendChild(optionb);
+           const option_span = document.createElement('span');
+              
+              option_span.textContent  = optionText;
+optionDiv.appendChild (option_span );
+              const percentage_txt = document.createElement('b');
+              percentage_txt.classList.add('num_v');
+  percentage_txt.textContent = totalVotes === 0 ? '0%' : `${Math.round((numberOfVotes / totalVotes) * 100)}%`;
+              
+              
+              
+              
+ optionDiv.appendChild(percentage_txt);
+         
+              
+              
+              optionb.style.width = totalVotes === 0 ? '0%' : `${(numberOfVotes / totalVotes) * 100}%`;
+
+              
+if(has_voted_poll){
+ optionb.style.visibility = "visible";
+ percentage_txt.style.visibility = "visible";           
+    
+}
+pollDiv.appendChild (optionDiv)
+opt_push.push(optionDiv);
+              
+            });
+            
+            // Reset Selection
+
+            
+            
+            
+            
+            
+            const poll_bottom=document.createElement("poll_bottom");
+            poll_bottom.classList.add("poll_bottom");
+            const poll_bottom_b=document.createElement("div");
+            poll_bottom_b.classList.add("poll_bottom_b");
+            
+            
+            const all_tags=document.createElement("div");
+            all_tags.classList.add("all_tags");
+            
+            
+            
+            
+            for(i=0;i<tags.length;i++){
+            const tag=document.createElement("div");
+            tag.classList.add("poll_bt_tag");
+            tag.textContent="#"+tags[i];
+            all_tags.appendChild(tag);
+            }
+            poll_bottom_b.appendChild(all_tags);
+            const bt_extra=document.createElement("div");
+            bt_extra.classList.add("bt_extra");
+            
+            
+            
+            const poll_bt_votes=document.createElement("div");
+            poll_bt_votes.classList.add("poll_bt_votes");
+poll_bt_votes.setAttribute("data-assoc-poll-id",pollId);            poll_bt_votes.innerHTML =`<span>${totalVotes} Votes </span><i class="fas fa-vote-yea"></i>`;
+poll_bt_votes.addEventListener("click", () => {
+getVoters(pollId,accessToken)
+  .then(result => {
+    if (result.status) {
+    
+      const voters = result.voters;
+      em(".bottom_dialog_sheet-content").innerHTML ="";
+          
+      voters.forEach(item=>{
+          
+          em(".bottom_dialog_sheet-content").innerHTML +=`
+          
+          
+         <div class="bottom_dialog_sheet-voter">
+                <div class="bottom_dialog_sheet-avatar">${(item.name.trim())[0]}</div>
+                <div class="bottom_dialog_sheet-info">
+                    <div class="bottom_dialog_sheet-name">${item.name}</div>
+                    <div class="bottom_dialog_sheet-polls">${item.pollCount} polls • ${item.voteCount} votes</div>
+                </div>
+            </div>`;
+          
+      })
+   
+        
+    
+const closeDialogBtn = document.getElementById("closeDialogBtn");
+const bottomSheetDialog = document.getElementById("bottomSheetDialog");
+
+
+
+
+    bottomSheetDialog.classList.add("open");
+
+closeDialogBtn.addEventListener("click", () => {
+    bottomSheetDialog.classList.remove("open");
+});
+    } else {
+      alert("error")
+    }
+  });
+        });
+ bt_extra.appendChild(poll_bt_votes);
+            
+            if(verified){ 
+            const poll_bt_verified=document.createElement("div");
+poll_bt_verified.onclick=show_a_v;            poll_bt_verified.classList.add("poll_bt_verified");
+ 
+ poll_bt_verified.innerHTML=` <span>Verified</span> <i class="fas fa-shield-alt"></i>`;
+            bt_extra.appendChild(poll_bt_verified);
+            
+            
+           } poll_bottom_b.appendChild(bt_extra);
+            poll_bottom.appendChild(poll_bottom_b);
+           
+            
+            const owners_area_cont=document.createElement('div');
+            owners_area_cont.classList.add("owners_area_cont");
+const poll_bt_time=document.createElement("div");
+            poll_bt_time.classList.add("poll_bt_time");
+    poll_bt_time.textContent=formatTimestamp(time);
+           owners_area_cont.appendChild(poll_bt_time);
+        
+            
+            
+            const owners_area=document.createElement('div');
+            owners_area.classList.add("owners_area");
+            
+            
+            
+            const owners_circle=document.createElement('div');
+            owners_circle.classList.add("owners_circle");
+            owners_circle.textContent=(pollOwnerName.trim()).split('')[0];
+            owners_area.appendChild(owners_circle);
+            
+            
+            
+            const ownerIdElement = document.createElement('p');
+            ownerIdElement.classList.add('ownerId');
+            ownerIdElement.classList.add('poll_bt_owner');
+            ownerIdElement.setAttribute("data-ownerId",pollUserId);
+ownerIdElement.textContent = `${pollOwnerName}`;
+            ownerIdElement.onclick=function(){
+              alert(ownerIdElement.innerText)
+            }
+            
+            
+            
+            
+            
+            
+            
+const reset_sel = () =>{
+    opt_push.forEach((el,ind)=>{
+      const num_vd = el.querySelector(".num_v");
+      const fillerd = el.querySelector(".filler");
+
+        fillerd.style.width = 0;
+        num_vd.style.visibility = "hidden";
+        fillerd.style.visibility = "hidden";
+        if(el.classList.contains("clicked")){
+            el.classList.remove("clicked");
+           totalVotes--;
+          pollOptions[ind][2]--;
+          pollOptions[ind][3]=0;
+          poll_bt_votes.textContent=totalVotes+" Votes";
+      
+      
+        }
+    })
+}
+opt_push.forEach((el, ind) => el.addEventListener("click", () => {
+    if(el.classList.contains("clicked")){
+      reset_sel();
+        const apiUrl = API_URL+'/unvote';
+
+// Replace with actual credentials, option ID, and poll ID
+
+const voteData = {
+  
+  poll_id: (el.getAttribute("data-assoc-poll-id"))  
+  
+  
+        // Replace with the poll ID
+};
+
+fetch(apiUrl, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization':  'Bearer '+accessToken
+    
+  },
+  body: JSON.stringify(voteData )
+})
+  .then(response => response.json())
+  .then(data => {
+    console.log('Response:', JSON.stringify(data));
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+
+      
+      
+    }
+    else{
+      reset_sel();
+        el.classList.add("clicked");
+      pollOptions[ind][2]++;
+      pollOptions[ind][3]=0;
+       totalVotes++;
+       poll_bt_votes.textContent=totalVotes+" Votes";
+      
+      
+      
+      
+     const apiUrl = API_URL+'/vote';
+
+// Replace with actual credentials, option ID, and poll ID
+
+const voteData = {
+  voted_option_id:  (el.getAttribute("data-poll-option-id")),  // Replace with the option ID
+  voted_poll_id: (el.getAttribute("data-assoc-poll-id"))      // Replace with the poll ID
+};
+
+fetch(apiUrl, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization':  'Bearer '+accessToken
+    
+  },
+  body: JSON.stringify(voteData )
+})
+  .then(response => response.json())
+  .then(data => {
+    console.log('Response:', JSON.stringify(data));
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+
+      
+      
+        for(let i=0;i<opt_push.length;i++){
+  const num_vb = opt_push[i].querySelector(".num_v");
+  const fillerx = opt_push[i].querySelector(".filler");
+//console.log(num_vb)
+            num_vb.style.visibility = "visible";
+            fillerx.style.visibility = "visible";
+          
+            let value = `${calc_perc(((pollOptions[i][2])),totalVotes)}%`;
+            
+         
+            
+          
+          
+          fillerx.style.width = value;
+            num_vb.textContent = value;
+            }
+    }
+}))
+    
+            
+            
+            
+            
+            
+            owners_area.appendChild(ownerIdElement);
+            owners_area_cont.appendChild(owners_area);
+            poll_bottom.appendChild(owners_area_cont);
+            pollDiv.appendChild(poll_bottom);
+
+            pollContainer.appendChild(pollDiv);
+          });
+}
+async function searchPolls(query, accessToken) {
+pollContainer.innerHTML="loading....";
+  try {
+    const response = await fetch(API_URL+`/search/v4?query=${query}`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+        'Search':generateJWT("sr_search_furqan_kt_mn_dyndx")
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error searching polls: ${response.statusText}`);
+    }
+    
+    const data = await response.json();
+    return data.polls; // Assuming that the results are returned as an array
+
+  } catch (error) {
+    console.error('Error searching polls:', error);
+    throw error;
+  }
+}
+
+function getConfirm(heading, information, btn1Text, btn2Text, btn1Click, btn2Click) {
+  const existingModal = document.querySelector('.x_d_popup_modal_modern');
+  if (existingModal) {
+    existingModal.querySelector('.x_d_modal-heading').textContent = heading;
+    existingModal.querySelector('.x_d_modal-content p').textContent = information;
+    return;
+  }
+
+  const modal = document.createElement('div');
+  modal.classList.add('x_d_popup_modal_modern');
+
+  const modalContent = document.createElement('div');
+  modalContent.classList.add('x_d_modal-content');
+  modal.appendChild(modalContent);
+
+  const modalHeading = document.createElement('h2');
+  modalHeading.classList.add('x_d_modal-heading');
+  modalHeading.textContent = heading;
+  modalContent.appendChild(modalHeading);
+
+  const modalInfo = document.createElement('p');
+  modalInfo.innerHTML = information;
+  modalContent.appendChild(modalInfo);
+
+  const buttonContainer = document.createElement('div');
+  buttonContainer.classList.add('button-container');
+  modalContent.appendChild(buttonContainer);
+
+  const button1 = document.createElement('button');
+  button1.textContent = btn1Text;
+  button1.addEventListener('click', () => {
+    if (btn1Click) {
+      btn1Click();
+    }
+    modal.remove();
+  });
+   if(btn1Text){
+  buttonContainer.appendChild(button1);
+}
+
+
+  const button2 = document.createElement('button');
+  button2.textContent = btn2Text;
+  button2.addEventListener('click', () => {
+    if (btn2Click) {
+      btn2Click();
+    }
+    modal.remove();
+  });
+   if(btn2Text){
+  buttonContainer.appendChild(button2);
+}
+
+  
+
+  document.body.appendChild(modal);
+  modal.classList.add('fade-in_xd');
+}
+
+function openErrorPopup(heading, message) {
+    if (!document.getElementById("error_open_al")) {
+        const overlay = document.createElement('div');
+        overlay.id = "error_open_al";
+        overlay.className = 'error-overlay';
+
+        const popup = document.createElement('div');
+        popup.className = 'error-popup';
+
+        const title = document.createElement('div');
+        title.id = "error_title_al";
+        title.className = 'error-title';
+        title.textContent = heading;
+
+        const errorMsg = document.createElement('div');
+        errorMsg.className = 'error-message';
+        errorMsg.textContent = message;
+        errorMsg.id = "error_msg_al";
+
+        const closeButton = document.createElement('button');
+        closeButton.className = 'erroroverlaybtn';
+        closeButton.textContent = 'Close';
+        closeButton.onclick = function() {
+            document.body.removeChild(overlay);
+            clearTimeout(autoCloseTimeout);
+        };
+
+        popup.appendChild(title);
+        popup.appendChild(errorMsg);
+        popup.appendChild(closeButton);
+
+        overlay.appendChild(popup);
+        document.body.appendChild(overlay);
+
+        const autoCloseTimeout = setTimeout(function () {
+            if (document.getElementById("error_open_al")) {
+                document.body.removeChild(overlay);
+            }
+        }, 2000);
+    } else {
+        document.getElementById("error_title_al").innerText = heading;
+        document.getElementById("error_msg_al").innerText = message;
+    }
+}
+function getHttps() {
+  return String.fromCharCode(104, 116, 116, 112, 115, 58, 47, 47);
+}
+
+function subDomain(){
+
+    return  String.fromCharCode(102, 117, 114, 113, 97, 110, 115, 120, 115, 101, 114, 118, 101, 114);
+
+
+}
+function Domain(){
+    return  String.fromCharCode(111,110,114, 101, 110, 100, 101, 114, 46, 99, 111, 109);
+}
+ 
+
+
+const calc_perc = (v,t) => {
+    return Math.round(v/t *100);
+}
+function formatTimestamp(timestampString) {
+  const timestamp = new Date(timestampString);
+  const now = new Date();
+
+  const timeDiff = now - timestamp;
+  const seconds = Math.floor(timeDiff / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const hours = Math.floor(minutes / 60);
+  const days = Math.floor(hours / 24);
+
+  if (days === 0) {
+    if (hours === 0) {
+      if (minutes === 0) {
+        if (seconds < 10) {
+          return 'just now';
+        }
+        return `${seconds} seconds ago`;
+      }
+      return `${minutes} minutes ago`;
+    } else {
+      // Check if it's yesterday by comparing date components
+      if (
+        now.getDate() - timestamp.getDate() === 1 &&
+        now.getMonth() === timestamp.getMonth() &&
+        now.getFullYear() === timestamp.getFullYear()
+      ) {
+        return `yesterday at ${timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+      }
+      return `today at ${timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+    }
+  } else if (days === 1) {
+    return `yesterday at ${timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+  } else {
+    const formattedDate = timestamp.toLocaleDateString([], { year: '2-digit', month: '2-digit', day: '2-digit' });
+    const formattedTime = timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    return `${formattedDate} ${formattedTime}`;
+  }
+}
+
+
+
+
+let [is_logging,accessToken,NAME,ID]=[null,null,null,null];
+
+window.onload=function(){
+const inputElement = document.getElementById("username");
+const passwordElement = document.getElementById("password");
+        const fa_user  = document.querySelector(".fa-user");
+        
+const ic_in = document.querySelector(".ic_in_username");
+const continue_btn_f=em(".continue_btn_f");
+
+const fa_2=em(".fa_2");
+
+document.getElementById("username").addEventListener("input", function() {
+  this.value = this.value.toLowerCase().replace(/[^a-z0-9_]/g, '');
+});
+
+
+        
+inputElement.addEventListener("focus", function() {
+  ic_in.classList.add("border");
+  fa_user.classList.add("cl"); ic_in.classList.add("input_bg_on_enter");
+  
+});
+passwordElement.addEventListener("focus", function() {
+  em(".ic_in_password").classList.add("border");
+  em(".fa-two").classList.add("cl"); em(".ic_in_password").classList.add("input_bg_on_enter");
+  
+});
+passwordElement.addEventListener("blur", function() {
+  em(".ic_in_password").classList.remove("border");
+  em(".fa-two").classList.remove("cl"); em(".ic_in_password").classList.remove("input_bg_on_enter");
+  
+})
+
+
+
+em(".ic_in_name input").addEventListener("focus", function() {
+  em(".ic_in_name").classList.add("border");
+  em(".fa-three").classList.add("cl"); em(".ic_in_name").classList.add("input_bg_on_enter");
+  
+});
+em(".ic_in_name input").addEventListener("blur", function() {
+  em(".ic_in_name").classList.remove("border");
+  em(".fa-three").classList.remove("cl"); em(".ic_in_name").classList.remove("input_bg_on_enter");
+  
+})
+
+
+
+em(".continue_btn_backtousername").addEventListener('click', () => {
+
+hideAllacInputs(em(".ic_in_username"));
+hideAllacBtns(em(".continue_btn_f"));
+em(".ic_in_password input").value="";
+em(".ic_in_name input").value="";
+
+})
+
+
+
+em(".continue_btn_signup_partial").addEventListener('click', () => {
+if(em(".ic_in_name>input").value.length>5&&em(".ic_in_name>input").value.length<13){
+
+hideAllacInputs(em(".ic_in_password"));
+hideAllacBtns(em(".continue_btn_signup_full"),em(".continue_btn_backtoname"));
+em(".ic_in_password input").value="";
+em(".ic_in_password input").focus();
+}else{
+    openErrorPopup('error', 'Name must be between 6-12');
+}
+
+
+});
+em(".continue_btn_signup_full").addEventListener('click', () => {
+
+if(em(".ic_in_username>input").value.length>5&&em(".ic_in_username>input").value.length<13){
+if(em(".ic_in_name>input").value.length>5&&em(".ic_in_name>input").value.length<16){
+if(em(".ic_in_password>input").value.length>5&&em(".ic_in_password>input").value.length<16){
+hideAllacBtns(em(".continue_btn_signup_full"));
+em(".continue_btn_signup_full").innerHTML='<div class="loader"></div>';
+em(".ic_in_password>input").disabled=true;
+var username= em("#username").value;
+var password= em("#password").value;
+var name= em("#name").value;
+
+fetch(API_URL+'/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+ 'access_token':generateJWT ("access_token_signup_furqansheart")         
+        },
+        body: JSON.stringify({
+        username,name,password
+            })
+      })
+        .then(response => response.json())
+        .then(data => {
+        
+        
+          if (data.success) {
+          
+          getConfirm(
+  "Success",
+  "Account Created, remember your credentials <br> username:<b>"+username+"</b> <br> password: <b>"+password+"</b>" ,
+ "Lets Go",
+  null,
+  () => {
+  
+accessToken =data.token;
+    NAME=data.name;
+    ID=data.userId;
+em(".my_name").innerText=NAME;   
+       
+em(".login_signup").style.display="none";  
+ em(".polls_home_u").style.display="block";
+ getPolls(accessToken ) ;  
+          
+        })
+          } else {
+          
+          alert(
+              JSON.stringify (
+                  data
+              )
+          )
+            console.error('Signup failed');
+          }
+        })
+      /*  .catch(error => {
+          console.error('Error signing up:', error);
+        });*/
+
+
+}else{
+
+   openErrorPopup('sorry', 'Password should be 6-15');
+}
+
+}else{
+    //name
+}
+}else{
+    
+    //username 
+}
+
+});
+em(".continue_btn_backtoname").addEventListener('click', () => {
+
+hideAllacInputs(em(".ic_in_name"));
+hideAllacBtns(em(".continue_btn_signup_partial"),em(".continue_btn_backtousername"));
+
+em(".ic_in_password input").value="";
+
+})
+em(".continue_btn_login").addEventListener('click', () => {
+hideAllacBtns(em(".continue_btn_login"));
+em(".continue_btn_login").innerHTML='<div class="loader"></div>';
+em(".ic_in_password>input").disabled=true;
+
+const data = {
+  username:  em(".ic_in_username>input").value,
+  password: em(".ic_in_password>input").value,
+  key: generateJWT("login_sec_key_delta_lmbda_sd_bkr_furqan")
+};
+
+  
+fetch(`${getHttps()}${subDomain()}${String.fromCharCode(46)}
+${Domain()}/login`, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(data)
+})
+  .then(response => response.json())
+  .then(data => {
+    em(".ic_in_password>input").disabled=false;
+    em(".continue_btn_login").innerHTML=' <i class="login__icon fas fa-arrow-right"></i>';
+    
+    if(data.success){
+    accessToken =data.token;
+    NAME=data.name;
+    ID=data.userId;
+em(".my_name").innerText=NAME;   
+       
+em(".login_signup").style.display="none";  
+ em(".polls_home_u").style.display="block";
+ getPolls(accessToken ) ;  
+    }else{
+    hideAllacBtns(em(".continue_btn_login"),em(".continue_btn_backtousername"));
+    if(data.error){
+    openErrorPopup('error', data.error);    
+        
+       }else{
+      openErrorPopup('error', 'Login Error');
+       } em(".continue_btn_login").innerHTML=' <i class="login__icon fas fa-arrow-right"></i>';
+    }
+  })
+  .catch(error => {
+    // Handle any errors here
+   hideAllacBtns(em(".continue_btn_login"),em(".continue_btn_backtousername")); em(".ic_in_password>input").disabled=false;
+    em(".continue_btn_login").innerHTML=' <i class="login__icon fas fa-arrow-right"></i>';
+    openErrorPopup('error', 'Login Error');
+  });
+  
+
+});
+
+    
+continue_btn_f.addEventListener('click', () => {
+var inputElement =em("#username");
+var  continue_btn_f =em(".continue_btn_f");
+    if(inputElement.value.length>5){
+if (!is_logging) {
+  is_logging = true;
+  inputElement.disabled = true;
+  continue_btn_f.innerHTML = '<div class="loader"></div>';
+
+  // Create a new Headers object and set the "key" header
+  const headers = new Headers();
+  headers.append("key", generateJWT ("chk_un_key_lmbda_delta_furqan")); // Replace "YourKeyValueHere" with your actual key
+
+  fetch(API_URL+`/checkUser?username=${inputElement.value}`, {
+    method: 'GET',
+    headers: headers, // Include the headers in the request
+  })
+    .then(response => response.json())
+    .then(data => {
+      is_logging=false;
+        inputElement.disabled=false;
+        
+        if(data.status===undefined){
+          if (data.exists) {
+            getConfirm(
+  "Existing User",
+  "This username exists login to continue?",
+  "Login",
+  "Cancel",
+  () => {
+  
+hideAllacBtns (em(".continue_btn_login"),em(".continue_btn_backtousername"));
+hideAllacInputs (em(".ic_in_password"));
+
+passwordElement.focus();
+
+  },
+  () => {
+   // console.log("close button clicked");
+  }
+);
+
+            
+          } else {
+            getConfirm(
+  "Register",
+  "This username looks new, register to continue with <b>"+inputElement.value +"</b>?",
+  "Register",
+  "Cancel",
+  () => {
+   hideAllacInputs (em(".ic_in_name"));
+   hideAllacBtns (em(".continue_btn_backtousername"),em(".continue_btn_signup_partial"));
+   em(".ic_in_name input").focus();
+    
+    
+  },
+  () => {
+   // console.log("close button clicked");
+  }
+);
+          }
+          }else{
+              openErrorPopup('ERR_ALD_LG', data.error);
+          }
+   continue_btn_f.innerHTML=`<i class="login__icon fas fa-arrow-right"></i>`;
+          
+        })
+        .catch(error => {
+        is_logging=false;
+        inputElement.disabled=false;
+        continue_btn_f.innerHTML=`<i class="login__icon fas fa-arrow-right"></i>`;
+       openErrorPopup('ERR_CHK_UN', 'Error occured while getting data');
+          
+        });
+} else {
+  openErrorPopup('ERR_ALD_LG', 'Already in Process, wait');
+}
+
+        }else{
+            openErrorPopup('UN_LEN', 'Username is too short');
+        }
+})
+
+
+
+
+            
+}
+
+
+
+
+/* create poll*/
+
+let num_o=2;
+function en(a){
+  return   document.querySelector(a)
+}
+
+function createPoll(accessToken) {
+var o_arr=[];
+if(en("#pollText").value.length>3&&en("#pollText").value.length<50){
+if(en("#option1").value.length>1&&en("#option1").value.length<40&& en("#option2").value.length>1&&en("#option2").value.length<40){
+o_arr.push(en("#option1").value);
+o_arr.push(en("#option2").value);
+if(num_o ==4){
+if(en("#option3").value.length>1&&en("#option3").value.length<50){
+o_arr.push(en("#option3").value);
+}else{
+    alert("fix option 3 must be 2-39 ");
+    return 
+}
+if(en("#option4").value.length>1&&en("#option4").value.length<40){
+o_arr.push(en("#option4").value);
+}else {
+    alert("fix option 3 must be 2-39 ");
+    return ;
+}
+}
+
+
+const pollData = {
+  poll_text: en("#pollText").value,
+  options: o_arr ,
+  tags:tags  // Replace with your poll options
+};
+
+alert(
+    
+    JSON.stringify (
+        
+        pollData ,null,3
+    )
+)
+  const url = API_URL+'/create';
+
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${accessToken}` // Include the access token in the Authorization header
+    },
+    body: JSON.stringify(pollData)
+  })
+    .then(response => response.json())
+    .then(data => {
+      // Handle the response data here
+      console.log(
+      JSON.stringify(
+          data
+      ))
+      
+      
+      
+    })
+    .catch(error => {
+      // Handle any errors here
+      console.error('Error:', error);
+    });
+    
+      }else{
+        alert("option 1,2 should be between 2-39")
+    }
+    }else{
+        alert("poll txt should be 3-50")
+    }
+}
+
+
+function toggle_num_op(){
+    if(num_o===2){
+           num_op.classList.remove("fa-plus");
+num_op.classList.add("fa-minus");  
+num_o =4;
+document.querySelector(".two_more_op").style.display="block";
+       }else{
+           num_op.classList.add("fa-plus");
+num_op.classList.remove("fa-minus");  
+num_o =2; 
+document.querySelector(".two_more_op").style.display="none";
+       }
+}
+
+
+/* report*/
+
+function reportPoll(pollid, accesstoken, reportText) {
+  return fetch(API_URL+'/report', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${accesstoken}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ reported_poll_id: pollid, report_text: reportText }),
+  })
+  .then((response) => {
+   /*if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }*/
+    return response.json();
+  })
+  .then((data) => {
+    return data;
+  })
+  .catch((error) => {
+    console.error('Error reporting poll:', error);
+    throw error;
+  });
+}
+
+// Example usage:
+      
+  </script>
+</head>
+<body>
+<div class="login_signup">
+<div class="at_top_login">
+    <span>Polls Yeah!</span>
+</div>
+    <div class="container">
+    
+        <form class="login-form">
+        <div class="txt_and_about">
+            <h1>
+                <span>Login</span>
+                <span class="slash">/</span>
+                <span class="register_span">Register</span>
+            </h1>
+            
+            <div class="r_g">
+                <i class="fas fa-info-circle login_open_tab"></i>
+            </div>
+            </div>
+            <div class="login_error">Hello error</div>
+            
+            
+            <div class="login_info">Enter used username if you have been here before or a set a new username to get started.</div>
+            
+            
+        
+            <div class="input-field input-field_username">
+                <label for="username"><span> </span></label>
+              <div class="ic_in ic_in_username">
+              
+              <i class="login__icon fas fa-user"></i>
+                <input pattern="[a-z_]+" title="Please use only small letters and underscores" type="text" id="username" name="username" placeholder="Enter your username"  required>
+                </div>
+                
+                
+                  <div class="ic_in ic_in_password">
+              
+              <i class="login__icon fas fa-lock fa-two"></i>
+                <input pattern="[a-z_]+" title="Please use only small letters and underscores" type="text" id="password" name="username" placeholder="Enter your Password"  required>
+                </div>
+                
+                
+                 <div class="ic_in ic_in_name">
+              
+              <i class="login__icon fas fa-info-user fa-three"></i>
+                <input pattern="[a-z_]+" title="Please use only small letters and underscores" type="text" id="name" name="username" placeholder="Enter your Name"  required>
+                </div>
+                
+                
+                
+                
+            </div>
+           
+          
+            <div class="continue ac_btn continue_btn_fb">
+               <i class="login__icon fas fa-arrow-left"></i>
+            </div>
+          
+ <div class="continue ac_btn  continue_btn_backtousername">
+               <i class="login__icon fas fa-arrow-left"></i>
+            </div>
+            
+            
+            
+             <div class="continue  ac_btn  continue_btn_backtopass">
+               <i class="login__icon fas fa-arrow-left"></i>
+            </div>
+             <div class="continue ac_btn  continue_btn_backtoname">
+               <i class="login__icon fas fa-arrow-left"></i>
+            </div>
+            
+            <div class="continue ac_btn  continue_btn_f">
+               <i class="login__icon fas fa-arrow-right"></i>
+            </div>
+            
+              <div class="continue ac_btn  continue_btn_login">
+               <i class="login__icon fas fa-arrow-right"></i>
+            </div>
+            
+            <div class="continue ac_btn  continue_btn_signup_partial">
+               <i class="login__icon fas fa-arrow-right"></i>
+            </div>
+        
+        
+        
+         <div class="continue ac_btn  continue_btn_signup_full">
+               <i class="login__icon fas fa-arrow-right"></i>
+            </div>
+        
+        
+        
+        
+        
+        </form>
+    </div>
+        <div class="this_from">
+         <span>from</span>
+         <b>Furqan Elahie</b>
+         </div>
+    
+    <!--tab dialog--->
+    
+    <!DOCTYPE html>
+<html>
+<head>
+<style>
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 999;
+}
+
+.dialogx {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 83%;
+    
+    
+    
+}
+
+.dialog-headerx {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-iconx {
+    cursor: pointer;
+    padding: 5px;
+}
+
+.tabs-containerx {
+    overflow-x: auto;
+    margin-bottom: 10px;
+    height:100%;
+    
+}
+
+.tabsx {
+    display: flex;
+    order: 1;
+    
+}
+
+.active-tabx {
+    background-color: transparent;
+    color: #007bff;
+}
+
+.active-tabx::after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #007bff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.tab-contentx {
+    display: none;
+    overflow :scroll;
+    height:30vh;
+    max-width: 400px;
+    
+}
+
+.tab-contentx.active-contentx {
+    display: block;
+}
+
+.tabsx button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    margin-right: 10px;
+    border-radius: 5px;
+    position: relative;
+}
+.a_title_anywgere{
+    color :rgb(0,0,0,.7);
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:1px;
+    margin-top:20px;
+    /*text-decoration:underline;*/
+}
+.a_title_anywgere_txt{
+    font-size:13px;
+    margin-top:3px;
+    font-weight:400;
+}
+</style>
+</head>
+<body>
+    <div class="overlay" id="overlay"></div>
+    <div id="dialogx" class="dialogx">
+        <div class="dialog-headerx">
+        
+            <div class="tabs-containerx">
+            
+                <div class="tabsx">
+                    <button class="active-tabx">Likes</button>
+                    <button>Language</button>
+                    <button>Working</button>
+                      <button>Database</button>
+                    <button>Credits</button>
+                </div>
+            </div>
+            <span class="close-iconx">✕</span>
+        </div>
+        
+          <div class="tab-contentx active-contentx">
+         
+         
+       <div class="a_title_anywgere">People who liked this code</div>
+    <div class="a_title_anywgere_txt">This is the first time I worked with nodejs ,pretty cool and easy. </div>
+
+          </div>
+        <div class="tab-contentx">
+            
+            <div class="a_title_anywgere">Frontend</div>
+    <div class="a_title_anywgere_txt">As you know I have used Html,css,js for frontend with a few required libraries</div>
+    
+   <div class="a_title_anywgere">Backend</div>
+    <div class="a_title_anywgere_txt">This is the first time I worked with nodejs ,pretty cool and easy. </div>
+
+
+
+
+
+
+        </div>
+        <div class="tab-contentx">
+            
+            <div class="a_title_anywgere">JWT(token) </div>
+    <div class="a_title_anywgere_txt">Login/signup is based on JWT authentication token that if validated on server will do things on behalf of the associated user </div>
+
+            
+        </div>
+         <div class="tab-contentx">
+             <div class="a_title_anywgere">MongoDb</div>
+    <div class="a_title_anywgere_txt">First time I used mongodb so easy , I had made the code with sql ,database was provided by a free provider they deleted my account after trail ended so I heard of mongodb.</div>
+    </div>
+        <div class="tab-contentx">
+          <div class="a_title_anywgere">Furqan Elahie</div>
+    <div class="a_title_anywgere_txt">
+    My code yeah!(frontend+backend)
+     </div>
+<div class="a_title_anywgere">Volt</div>
+    <div class="a_title_anywgere_txt">Contributed in making poll card [frontend]</div>
+
+        </div>
+    </div>
+
+   
+    <script>
+        const openDialogBtn = document.querySelector('.login_open_tab');
+        const dialog = document.getElementById('dialogx');
+        const overlay = document.getElementById('overlay');
+        const tabs = document.querySelector('.tabsx');
+        const closeIcon = document.querySelector('.close-iconx');
+        const tabContents = document.querySelectorAll('.tab-contentx');
+
+        openDialogBtn.addEventListener('click', () => {
+            dialog.style.display = 'block';
+            overlay.style.display = 'block';
+            tabs.querySelector('button').classList.add('active-tabx');
+            tabContents[0].classList.add('active-contentx');
+      });
+     setTimeout(function (){
+         dialog.style.display = 'block';
+            overlay.style.display = 'block';
+            tabs.querySelector('button').classList.add('active-tabx');
+            tabContents[0].classList.add('active-contentx');
+    
+         
+         
+     },1300);
+
+        closeIcon.addEventListener('click', () => {
+            dialog.style.display = 'none';
+            overlay.style.display = 'none';
+            
+            tabs.querySelectorAll('button').forEach((tab, index) => {
+                    
+                        tab.classList.remove('active-tabx');
+                        tabContents[index].classList.remove('active-contentx');
+                    
+                });
+            
+            
+        });
+
+        tabs.addEventListener('click', (event) => {
+            if (event.target.tagName === 'BUTTON') {
+                tabs.querySelectorAll('button').forEach((tab, index) => {
+                    if (tab === event.target) {
+                        tab.classList.add('active-tabx');
+                        tabContents[index].classList.add('active-contentx');
+                    } else {
+                        tab.classList.remove('active-tabx');
+                        tabContents[index].classList.remove('active-contentx');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
+    
+    </div>
+
+
+<div class="polls_home_u">
+    <header class="sticky-header">
+        <div class="menu-icon">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="polls-text">
+            Polls
+        </div>
+        <div class="user-profile-icon">
+        
+        <i class="fas fa-user-circle"></i>
+         <span class="my_name">User</span>
+           
+        
+        </div>
+    </header>
+    <div class="header-extension"></div>
+    <div class="search_div_op">
+      <div class="search_div">
+<input id="searchInput"  type="search" placeholder="Search"/>
+<button id="search-btn"> <i class="fas fa-search"></i></button>
+</div>
+<script>
+   em("#search-btn").onclick=function(){
+     
+document.activeElement.blur();
+searchPolls(searchInput.value, accessToken)
+  .then(results => {
+  pollContainer.innerHTML="";
+  processData(results )
+    console.log('Search results:', JSON.stringify (results));
+  })
+  .catch(error => {
+  pollContainer.innerHTML="";
+    console.error('Error:', error);
+  });
+ 
+   }
+    document.getElementById('searchInput').addEventListener('keyup', function(event) {
+        if (event.key === 'Enter') {
+document.activeElement.blur();
+searchPolls(searchInput.value, accessToken)
+  .then(results => {
+  pollContainer.innerHTML="";
+  processData(results )
+    console.log('Search results:', JSON.stringify (results));
+  })
+ /*
+   .catch(error => {
+  pollContainer.innerHTML="";
+    console.error('Error:', error);
+  });
+ */
+        }
+    });
+    
+    
+</script>
+
+    
+</div>
+
+<div class="centered-dropdown-container">
+  
+
+ <div class="custom-dropdown  custom_drop_downx">
+  <span id="selectedOption">
+      
+      
+      <span id="choosen_cat">Most Voted</span>
+      <i  class="fas fa-chevron-down custom-select-icon"></i>
+  </span>
+  <div class="custom-dropdown-content">
+   <div class="custom-dropdown-item">Most Recent</div>
+    <div class="custom-dropdown-item">Most Voted</div>
+    <div class="custom-dropdown-item">My Voted</div>
+    <div class="custom-dropdown-item">My Polls</div>
+  </div>
+</div>
+</div>
+<script>
+    
+    document.querySelector(".custom_drop_downx").addEventListener('click', function() {
+        toggleDropdown(document.querySelector(".custom_drop_downx"));
+    });
+
+
+
+    var items = document.querySelectorAll('.custom-dropdown-item');
+
+    items.forEach(function(item, index) {
+        item.addEventListener('click', function() {
+            var category;
+            var value;
+
+            switch (index) {
+                case 0:
+                    category = 'Most Recent';
+                    value = "most_recent";
+                    
+ page_num=0;
+ filter_num="most_recent";              
+                    
+                    break;
+                case 1:
+                    category = 'Most Voted';
+                    value = "most_voted";
+   page_num=0;
+ filter_num="most_voted";                
+                    break;
+                case 2:
+                    category = 'My Voted';
+                    value = "my_voted";
+  page_num=0;
+ filter_num="my_voted";                 
+                    
+                    break;
+                case 3:
+                    category = 'My Polls';
+                    value = "my_polls";
+                    page_num=0;
+ filter_num="my_polls";
+                    break;
+            }
+
+            selectCategory(category, value);
+        });
+    });
+
+function toggleDropdown(dropdown) {
+    dropdown.classList.toggle('active');
+}
+
+function selectCategory(displayText, value) {
+    // Update the span with the selected text
+    
+    
+
+em("#choosen_cat").innerText=displayText;
+pollContainer.innerHTML ="loading...";
+   getPolls(accessToken ,value); document.querySelector('.custom-dropdown-content').classList.toggle('active');
+    
+}
+
+
+
+</script>
+
+
+  <div id="pollContainer"></div>
+ <div class="ld_mr_div">
+           <div class="loader_ld_more"></div>
+       </div> 
+  <script>
+  var pids=[];
+    function getPolls(accessToken,filter="most_voted",page=0 ,paginate=false){
+      const pollContainer = document.getElementById('pollContainer');
+      
+      // Update the URL to include the access token in the request headers
+      
+      const url = API_URL+'/polls?filter='+filter+'&page='+page+'&limit=20';
+      const headers = {
+        'Authorization': `Bearer ${accessToken}`
+      };
+
+      fetch(url, {
+        method: 'GET',
+        headers: headers
+      })
+        .then(response => response.json())
+        .then(data => {
+       /*  alert("SERVER RESPONSE"+ "\n" + JSON.stringify(data, null, 0));
+          
+*/
+em(".ld_mr_div").style.display="none";        processData(data.polls,paginate)
+        
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+        });
+    }
+    
+ 
+
+     
+  </script>
+  
+  
+  
+  
+  <!--- voters stufff-->
+  
+  
+    <div id="bottomSheetDialog" class="bottom_dialog_sheet">
+        <div class="bottom_dialog_sheet-header">
+            <div class="bottom_dialog_sheet-title">Voters</div>
+            <button id="closeDialogBtn" class="bottom_dialog_sheet-close-btn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="bottom_dialog_sheet-content">
+           
+            
+            
+             
+          
+            
+            <!-- Add more voters as needed -->
+        </div>
+    </div>
+
+
+    
+
+        
+<!--- FEATURES-->
+
+
+
+    <style>
+        .features-modal {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .features-modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius:10px;
+            width: 80%;
+            max-height: 70%;
+            background-color: #fff;
+            padding: 20px;
+            overflow: scroll;
+            
+        }
+
+        .features-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .feature i {
+            margin-right: 10px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="featuresModal" class="features-modal">
+        <div class="features-modal-content">
+            <div class="features-modal-header">
+                <h2>Features</h2>
+                <span onclick="closeFeaturesModal()" class="close-icon"><i class="fas fa-times"></i></span>
+            </div>
+           
+           <div class="features-list">
+    <div class="feature">
+        <i class="fas fa-check"></i>
+        Real Login/Signup
+    </div>
+    <div class="feature">
+        <i class="fas fa-check"></i>
+        Browse Polls from Others
+    </div>
+
+    <div class="feature">
+        <i class="fas fa-check"></i>
+        Vote on Polls, Just Like in Real Life
+    </div>
+    <div class="feature">
+        <i class="fas fa-check"></i>
+        Create Your Own Polls
+    </div>
+
+    <div class="feature">
+        <i class="fas fa-check"></i>
+        Approximate Percentage Results Display
+    </div>
+    <div class="feature">
+        <i class="fas fa-check"></i>
+        Delete Your Own Polls
+    </div>
+
+    <div class="feature">
+        <i class="fas fa-check"></i>
+        View Who Voted on a Poll and How Many
+    </div>
+    <div class="feature">
+        <i class="fas fa-check"></i>
+        Verification Badge for Acceptable Polls
+    </div>
+    <div class="feature">
+        <i class="fas fa-check"></i>
+        Search for Specific Polls
+    </div>
+    <div class="feature">
+        <i class="fas fa-check"></i>
+        Unvote on a Poll If Needed
+    </div>
+</div>
+
+                
+                
+                
+            </div>
+        </div>
+    
+
+    <script>
+        function openFeaturesModal() {
+            document.getElementById("featuresModal").style.display = "block";
+        }
+
+        function closeFeaturesModal() {
+            document.getElementById("featuresModal").style.display = "none";
+        }
+    </script>
+
+  <!DOCTYPE html>
+<html>
+<head>
+  
+  <style>
+    .poll_create_dia_para {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 90%;
+      background-color: white;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+      z-index: 9999;
+      overflow: hidden;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+      background-color: #fff;
+      color: white;
+      
+      
+       
+    }
+
+    .modal-header .cr_px {
+      margin: 0;
+      color:rgb(0,0,0,.7);
+      font-size:18px;
+      font-weight:600;
+      
+    }
+
+    .close-icon {
+      cursor: pointer;
+      color:black;
+    }
+
+    .modal-content {
+      overflow-y: scroll;
+      padding: 20px;
+      max-height: calc(100% - 60px);
+    }
+  </style>
+</head>
+<body>
+  <div class="poll_create_dia_para">
+
+    <div class="modal-content">
+     
+     <!DOCTYPE html>
+<html>
+<head>
+<script src="https://kit.fontawesome.com/c9705384ae.js" crossorigin="anonymous"></script>
+  <style>
+    /* Add CSS styling here */
+    .label_k {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .input_k[type="text"],
+    .textarea_k {
+      width: 90%;
+      padding: 5px;
+      margin-bottom: 10px;
+      outline:none;
+      border-radius:5px;
+      border:2px solid #ddd;
+    }
+     .input_k[type="text"]{
+         height:30px;
+     }
+    .textarea_k{
+        height:80px;
+    }
+   .input_k[type="text"]:focus,
+    .textarea_k:focus {
+    border:2px solid #007bff;
+    }
+   .createBtn_k {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      width:100%;
+      margin-top:20px;
+      border-radius:10px;
+      margin-left:auto;
+      margin-bottom:20px;
+    }
+    .two_more_op{
+        display :none;
+    }
+  </style>
+</head>
+<body>
+<div class="modal-header">
+      <span class="cr_px">Create Poll</span>
+      <span class="close-icon hide_create_poll"><i class="fas fa-times"></i></span>
+    </div>
+
+  <div class="like_fr">
+
+    
+    <div class="enter_poll_text_div">Poll Text</div>
+    <textarea class="textarea_k" id="pollText" name="pollText" rows="4" cols="50" placeholder="Enter Poll Question"></textarea>
+    <div class="init_options_b">
+        
+        <div class="options_text_div">Options
+        
+        </div>
+        
+          <i class="login__icon num_options fas fa-plus"></i>
+          
+          
+          
+    </div>
+    
+    <input class="input_k" type="text" id="option1" name="option1" placeholder="Enter Option 1">
+    
+   
+    <input class="input_k" type="text" id="option2" placeholder="Enter Option 2">
+    <div class="two_more_op">
+    
+    <input class="input_k" type="text" id="option3" placeholder="Enter Option 3">
+    
+    
+    <input class="input_k" type="text" id="option4" placeholder="Enter Option 4">
+    
+   
+    </div>
+
+   <div class="tags_text_div">Tags</div>
+        
+  
+ 
+   <div class="tags_crt">
+        <input type="text" id="tag-input" placeholder="Enter tag without #" onkeydown="if(event.keyCode === 13) addTag()">
+        <button onclick="addTag()">
+            
+        <i class="login__icon fas fa-arrow-right"></i>
+            
+        </button>
+    </div>
+    <div id="tag-container"></div>
+   
+    <button type="button" id="createBtn" class="createBtn_k" onclick ="createPoll(accessToken )">Create</button>
+  </div>
+  
+   <script>
+   
+   var num_op=document.querySelector(".num_options");
+   num_op.onclick = toggle_num_op;
+   
+        var tagContainer = document.getElementById("tag-container");
+        var tagInput = document.getElementById("tag-input");
+        var tags = [];
+        
+        function addTag() {
+            var tag = tagInput.value.trim();
+            if(!(tags.length>2)){
+            if (tag !== "") {
+            if((tag.length<12&tag.length >1)){
+                var tagElement = document.createElement("div");
+                tagElement.classList.add("tag_crt");
+                tagElement.textContent ="#"+ tag;
+                var tagButton = document.createElement("button");
+                tagButton.textContent = "X";
+                tagButton.addEventListener("click", function() {
+                    tagElement.remove();
+                    tags.splice(tags.indexOf(tag), 1);
+                    updateTags();
+                });
+                tagElement.appendChild(tagButton);
+                tagContainer.appendChild(tagElement);
+                tags.push(tag);
+                updateTags();
+                tagInput.value = "";
+                
+                   }else{
+                alert(" tag must be 2-12 in length")
+            }
+            } else {
+                alert("Please enter a tag.");
+            }
+         
+            }else{
+                alert(" Max tags used")
+            }
+            
+        }
+        
+        function updateTags() {
+            var json = JSON.stringify(tags);
+            
+        }
+    </script>
+</body>
+</html>
+
+     
+     
+     
+    </div>
+  </div>
+  
+
+  <script>
+    
+   document.querySelector(".poll_create_dia_para").style.display = "block"; document.querySelector(".hide_create_poll").addEventListener("click", function() {
+      document.querySelector(".poll_create_dia_para").style.display = "none";
+    });
+  </script>
+</body>
+</html>
+<style>
+    
+     /* Overlay Styles */
+        .report_poll_modal-overlay {
+            display: nonne;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index:99999;
+            
+        }
+
+        /* Modal Styles */
+        .report_poll_modal {
+        
+            display: nonne;
+            position:relative ;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 400px;
+            text-align: center;
+            z-index:777;
+            width:80%;
+        }
+
+        /* Text Styles */
+        .report_poll_modal-text {
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        /* Textarea Styles */
+        .report_poll_modal-textarea {
+            width: 100%;
+            max-width: 100%;
+            height: 80px;
+            max-height: 80px;
+            margin: 10px 0;
+            border: 2px solid #ddd ;
+            border-radius: 10px;
+            padding: 5px;
+            outline:none;
+            
+        }
+ .report_poll_modal-textarea:focus {
+            border: 2px solid rgba(62, 130, 243, 0.9); ;
+            outline:none;
+        }
+        /* Button Container Styles */
+        .report_poll_modal-buttons {
+            display: flex;
+            outline:none;
+        }
+
+        /* Button Styles */
+        .report_poll_modal-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left:auto;
+            outline:none;
+        }
+
+        .report_poll_modal-button.cancel {
+            background-color: #fff;
+            color:rgba(62, 130, 243, 0.9);
+            
+            
+            
+        }
+
+        .report_poll_modal-button.report {
+  background-color: rgba(62, 130, 243, 0.9);
+            color: #fff;
+        }
+</style>
+  <script>
+      function openModal(pollid) {
+        // Create the overlay
+        var overlay = document.createElement("div");
+        overlay.className = "report_poll_modal-overlay";
+        overlay.id = "overlay";
+        
+
+        // Create the modal
+        var modal = document.createElement("div");
+        modal.className = "report_poll_modal";
+        modal.id = "report_poll_modal";
+
+        // Modal content
+        
+
+const reportText = document.createElement('div');
+reportText.classList.add('report_poll_modal-text');
+reportText.textContent = 'Report Poll';
+
+const textarea = document.createElement('textarea');
+textarea.classList.add('report_poll_modal-textarea');
+textarea.setAttribute('maxlength', '90');
+textarea.setAttribute('placeholder', 'Enter your report here');
+
+const buttonDiv = document.createElement('div');
+buttonDiv.classList.add('report_poll_modal-buttons');
+
+const cancelButton = document.createElement('button');
+cancelButton.classList.add('report_poll_modal-button', 'cancel');
+cancelButton.textContent = 'Cancel';
+cancelButton.addEventListener('click', closeModal);
+
+const reportButton = document.createElement('button');
+reportButton.classList.add('report_poll_modal-button', 'report');
+reportButton.textContent = 'Report';
+reportButton.onclick =function(){
+closeModal();
+    reportPoll(pollid, accessToken, textarea.value)
+  .then((result) => {
+  
+      
+      
+      
+  if(result.status){
+  openErrorPopup('Response', 'Poll Reported Successfully,we will check it and remove it incase it goes against T&C');
+    }else{
+        openErrorPopup('Response', result.message);
+    }
+    
+    
+    
+  })
+  .catch((error) => {
+    console.error('Error:', error); // Handle errors here
+  });
+}
+buttonDiv.appendChild(cancelButton);
+buttonDiv.appendChild(reportButton);
+
+modal.appendChild(reportText);
+modal.appendChild(textarea);
+modal.appendChild(buttonDiv);
+
+overlay.appendChild(modal);      document.body.appendChild(overlay); 
+    }
+
+    // Function to close and remove the modal
+    function closeModal() {
+        
+        var overlay = document.querySelector(".report_poll_modal-overlay");
+
+        if ( overlay) {
+            
+            overlay.parentNode.removeChild(overlay);
+        }
+    }
+      
+  </script>
+  
+  </div>
+    <!-- Rest of your content goes here -->
+</body>
+</html>
+
+</body>
+</html>
